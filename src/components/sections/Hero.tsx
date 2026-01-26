@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import { AIButton } from "@/components/ui/ai-button";
-import ScrambledText from "@/components/ui/ScrambledText";
+// import ScrambledText from "@/components/ui/ScrambledText";
 import ruFlag from "@/assets/flags/ru.svg";
 import { gsap } from "gsap";
 
@@ -216,7 +216,7 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
               </Link>
             </div>
 
-            <ScrambledText
+            {/* <ScrambledText
               className="mt-6"
               radius={100}
               duration={1.2}
@@ -224,7 +224,7 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
               scrambleChars="!@#$%^&*()_+-=[]{};:,.<>/?"
             >
               ✓ WordPress ✓  Opencart ✓  Классическое SEO ✓  ИИ Структура
-            </ScrambledText>
+            </ScrambledText> */}
           </motion.div>
 
           {/* RIGHT — ORBITS */}

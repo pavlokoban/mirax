@@ -7,7 +7,7 @@ import { Philosopher } from 'next/font/google';
 import ClientEffects from "@/components/ClientEffects";
 
 export const metadata = {
-  title: "Миракс – KI-freundliche WordPress-Websites & AI SEO | Frankfurt am Main",
+  title: "Миракс – Разработка сайтов WordPress, оптимизированные для ИИ | Москва",
   description:
     "Миракс spezialisiert sich auf KI-freundliche WordPress-Webentwicklung, technische SEO und AI-Optimierung für Unternehmen in Deutschland und Frankfurt am Main.",
   openGraph: {

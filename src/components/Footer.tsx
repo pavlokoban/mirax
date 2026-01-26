@@ -1,66 +1,114 @@
-"use client";
-
-import Container from "@/components/Container";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-black text-slate-300 py-20 border-t border-white/10">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="grid gap-10 md:grid-cols-4"
-        >
-          {/* LOGO */}
+    <footer className="bg-black text-white">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+
+          {/* BRAND */}
           <div>
-            <h3 className="text-brand font-display text-2xl font-semibold mb-4">
-              BusinessHafen
+            <h3 className="text-xl font-semibold mb-4">
+              Mirax
             </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              KI-freundliche Webentwicklung, moderne SEO-Strategien und AI-optimierte Inhalte für Unternehmen in Deutschland.
+            <p className="text-sm text-white/70 max-w-xs">
+              Агентство по разработке сайтов на WordPress,
+              оптимизированных под ИИ-поиск, ChatGPT, Яндекс Алису и Gemini.
+              Работаем с проектами в Москве и по всему миру.
             </p>
           </div>
 
-          {/* LINKS */}
+          {/* SERVICES */}
           <div>
-            <h4 className="font-semibold text-white mb-3">Navigation</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/#services" className="hover:text-brand">Leistungen</Link></li>
-              <li><Link href="/web-development" className="hover:text-brand">Webentwicklung</Link></li>
-              <li><Link href="/seo" className="hover:text-brand">SEO</Link></li>
-              <li><Link href="/about" className="hover:text-brand">Über uns</Link></li>
-              <li><Link href="/kontakt" className="hover:text-brand">Kontakt</Link></li>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">
+              Услуги
+            </h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              <li>
+                <Link href="/services/ai-websites" className="hover:text-white">
+                  Разработка сайтов под ИИ
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-ecommerce" className="hover:text-white">
+                  ИИ-оптимизированные интернет-магазины
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-promotion" className="hover:text-white">
+                  Продвижение и AIO
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* LEGAL */}
+          {/* COMPANY */}
           <div>
-            <h4 className="font-semibold text-white mb-3">Rechtliches</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/impressum" className="hover:text-brand">Impressum</Link></li>
-              <li><Link href="/datenschutz" className="hover:text-brand">Datenschutz</Link></li>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">
+              Компания
+            </h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              <li>
+                <Link href="/about" className="hover:text-white">
+                  О компании
+                </Link>
+              </li>
+              <li>
+                <Link href="/contacts" className="hover:text-white">
+                  Контакты
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-white">
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* CONTACT */}
+          {/* CONTACTS / LEGAL */}
           <div>
-            <h4 className="font-semibold text-white mb-3">Kontakt</h4>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Frankfurt am Main, Deutschland<br />
-              E-Mail: kontakt@businesshafen.de
-            </p>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">
+              Контакты
+            </h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              <li>
+                <a
+                  href="mailto:hello@mirax.ru"
+                  className="hover:text-white"
+                >
+                  hello@mirax.ru
+                </a>
+              </li>
+              <li>
+                Москва, Россия
+              </li>
+            </ul>
+
+            <div className="mt-6">
+              <Link
+                href="/privacy-policy"
+                className="text-xs text-white/50 hover:text-white"
+              >
+                Политика конфиденциальности
+              </Link>
+            </div>
           </div>
-        </motion.div>
+
+        </div>
 
         {/* BOTTOM */}
-        <div className="mt-10 pt-6 border-t border-white/10 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} BusinessHafen – Alle Rechte vorbehalten.
+        <div className="mt-20 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center text-xs text-white/50 gap-4">
+          <span>
+            © {new Date().getFullYear()} Mirax. Все права защищены.
+          </span>
+          <span>
+            Веб-сайты, оптимизированные для ИИ, и стратегия «все в одном»
+          </span>
         </div>
-      </Container>
+
+      </div>
     </footer>
-  );
+  )
 }

@@ -1,60 +1,70 @@
-import Container from "@/components/Container";
+'use client'
+
+import { motion } from 'framer-motion'
 
 const services = [
   {
-    title: "Webentwicklung",
-    text: "Moderne WordPress-Websites mit klarer Struktur, hoher Performance und AI-Optimierung.",
-    link: "/web-development",
+    title: 'Разработка сайтов, оптимизированных под ИИ',
+    description:
+      'Клиентские сайты, лендинги и корпоративные проекты на WordPress, готовые к AI-поиску.',
+    href: '/services/ai-websites',
   },
   {
-    title: "AI SEO & Promotion",
-    text: "SEO-Optimierung, technische Struktur, Content-Architektur und AI Overviews Optimierung.",
-    link: "/seo",
+    title: 'ИИ-оптимизированные интернет-магазины',
+    description:
+      'Opencart / WooCommerce с правильной структурой категорий, товаров и экспертного контента.',
+    href: '/services/ai-ecommerce',
   },
   {
-    title: "Betreuung & Wartung",
-    text: "Updates, Sicherheit, Backups und fortlaufende Optimierung.",
-    link: "/services",
+    title: 'Реклама, продвижение и адаптация сайтов под ИИ',
+    description:
+      'Анализ, переработка структуры, контента и семантики под Алиса, ChatGPT и Gemini, а также настройка рекламы.',
+    href: '/services/ai-promotion',
   },
-];
+  {
+    title: 'Создание дизайнов сайтов под ИИ',
+    description:
+      'Создание дизайна сайтов, учитывающих структуру и UI/UX под требования Алиса, ChatGPT и Gemini.',
+    href: '/services/ai-design',
+  },
+]
 
-export default function ServicesSection() {
+export default function Services() {
   return (
-    <section className="py-24 bg-brand text-black relative">
-      {/* Soft shadow on top */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/10 pointer-events-none" />
-
-      <Container>
-        <h2 className="text-3xl sm:text-5xl font-display font-semibold mb-6">
-          Unsere Leistungen
+    <section className="w-full py-24">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <h2 className="text-5xl font-bold mb-16">
+          Наши услуги
         </h2>
 
-        <p className="text-black/80 max-w-2xl mb-12 text-lg">
-          Wir entwickeln digitale Lösungen, die moderne UX, sauberen Code und
-          KI-freundliche Struktur miteinander verbinden.
-        </p>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          {services.map((s) => (
-            <a
-              key={s.title}
-              href={s.link}
-              className="
-                bg-white shadow-xl rounded-xl2 p-6 border border-black/10
-                hover:scale-105 hover:shadow-2xl transition-all duration-300
-                hover:border-black
-              "
+        {/* Services list */}
+        <div className="flex flex-col divide-y divide-black/10">
+          {services.map((service, index) => (
+            <motion.a
+              key={index}
+              href={service.href}
+              whileHover={{ x: 6 }}
+              transition={{ duration: 0.2 }}
+              className="group flex items-center justify-between py-10"
             >
-              <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-              <p className="text-black/70 mb-4">{s.text}</p>
-              <span className="text-black font-medium underline underline-offset-4">
-                Mehr erfahren →
-              </span>
-            </a>
+              <div className="max-w-3xl">
+                <h3 className="text-2xl font-semibold mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-base opacity-80">
+                  {service.description}
+                </p>
+              </div>
+
+              {/* Arrow */}
+              <div className="ml-8 flex h-12 w-12 items-center justify-center rounded-full border border-black/20 transition group-hover:bg-black group-hover:text-white">
+                →
+              </div>
+            </motion.a>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
-  );
+  )
 }
-

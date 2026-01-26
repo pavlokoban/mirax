@@ -1,25 +1,29 @@
 // app/page.tsx
 import Hero from "@/components/sections/Hero";
-import FeaturesSection from "@/components/sections/FeaturesSection";
+import Stack from "@/components/sections/Stack";
 import ServicesSection from "@/components/sections/ServicesSection";
-import KISection from "@/components/sections/KISection";
-import WebDevSection from "@/components/sections/WebDevSection";
-import SEOSection from "@/components/sections/SEOSection";
-import ReferencesSection from "@/components/sections/ReferencesSection";
+import WhatIsAIOptimized from "@/components/sections/WhatIsAIOptimized";
+import WhoNeedsAIOptimized from "@/components/sections/WhoNeedsAIOptimized";
+import HowWeWorkAndWhyUs from "@/components/sections/HowWeWorkAndWhyUs";
+// import Portfolio from "@/components/sections/Portfolio";
+import FAQ from "@/components/sections/FAQ";
 import CTASection from "@/components/sections/CTASection";
+import ContactFormRus from "@/components/contact-form/ContactFormRus";
 
 export default function HomePage() {
   return (
     // <div className="space-y-24 pb-16">
           <div className="pb-16">
       <Hero />
-      <FeaturesSection />
+      <Stack />
       <ServicesSection />
-      <KISection />
-      <WebDevSection />
-      <SEOSection />
-      <ReferencesSection />
-      <CTASection />
+      <WhatIsAIOptimized />
+      <WhoNeedsAIOptimized />
+      <HowWeWorkAndWhyUs />
+      {/* <Portfolio /> */}
+      <FAQ />
+      {/* <CTASection /> */}
+      <ContactFormRus />
     </div>
   );
 }
