@@ -1,25 +1,3 @@
-// "use client";
-
-// import BackgroundAnimation from "./BackgroundAnimation";
-
-// export default function BackgroundAnimationWrapper() {
-//   return (
-//     <div
-//       className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
-//       style={{
-//         maskImage:
-//           "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
-//         WebkitMaskImage:
-//           "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
-//         opacity: 0.55,
-//       }}
-//     >
-//       <div className="w-full h-full">
-//         <BackgroundAnimation />
-//       </div>
-//     </div>
-//   );
-// }
 "use client";
 
 import BackgroundAnimation from "./BackgroundAnimation";

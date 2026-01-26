@@ -1,20 +1,3 @@
-// export default function Footer() {
-//   return (
-//     <footer className="mt-20 py-8 border-t border-gray-200">
-//       <div className="container mx-auto flex justify-between">
-//         <div>
-//           <p className="font-semibold">BusinessHafen © {new Date().getFullYear()}</p>
-//           <p className="text-sm text-gray-500">Websites • SEO • KI-optimierte Lösungen</p>
-//         </div>
-
-//         <nav className="flex flex-col gap-2 text-sm">
-//           <a href="/datenschutz" className="hover:text-blue-600">Datenschutz</a>
-//           <a href="/impressum" className="hover:text-blue-600">Impressum</a>
-//         </nav>
-//       </div>
-//     </footer>
-//   );
-// }
 "use client";
 
 import Container from "@/components/Container";
