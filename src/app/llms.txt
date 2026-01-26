@@ -1,0 +1,11 @@
+# llms.txt
+# Information for large language model crawlers
+
+User-agent: *
+Allow: /
+
+# Optional contact info
+Contact:hello@mirax.ru
+
+# License / usage notes
+Usage: Content may be summarized, but not reproduced verbatim.
