@@ -1,0 +1,134 @@
+.sliderContainer {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .slickArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .slickPrev {
+    left: 0;
+  }
+  
+  .slickNext  {
+    right: 0;
+  }
+  
+  .slide {
+    display: flex;
+    align-items: center;
+    height: 300px;
+  }
+  
+  .stageNumber {
+    font-family: 'Unbounded', system-ui, sans-serif;
+    line-height: 1;
+    flex: 0 0 33%;
+    font-size: 444px;
+    color: #ffffff; /* White text color */
+    -webkit-text-stroke: 1px #000000; /* Black outline with 2px thickness */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .stageContent {
+    flex: 0 0 67%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .stageTitle {
+    font-size: 61px;
+    margin-top: 10px;
+    font-weight: 500;
+    /*font-family: 'Unbounded', system-ui, sans-serif;*/
+  }
+  
+  .resultText {
+    margin-bottom: 42px;
+    font-weight: 600;
+    width: max-content;
+    font-size: 20px;
+  }
+  
+  .resultTextP {
+    background-color: var(--color-main-1-deep);
+    color: #000000;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 6px 12px;
+  }
+  
+  .resultTextR {
+    font-weight: 600;
+    font-size: 20px;
+    padding: 6px 12px;
+    width: max-content;
+  }
+  
+  .slideCounter {
+    font-size: 24px;
+    color: #000;
+    margin-left: auto;
+    position: relative;
+   /* font-family: 'Unbounded', system-ui, sans-serif;*/
+  }
+  
+
+/* Медиа */
+@media (max-width: 992px) { 
+    .sliderContainer {
+        height: 100%;
+    }
+    .stageNumber {
+        font-size: 270px;
+    }    
+    .stageTitle {
+        font-size: 30px;
+        hyphens: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+      .stageContent {
+            display: block;
+            padding: 10px;
+      }
+      .resultText {
+            width: fit-content;
+      }
+        .slide {
+            display: block;
+            height: 100%;
+        }
+        .resultTextR, .slideCounter {
+            display: none;
+        }
+        .resultTextP {
+            font-weight: 400;
+            font-size: 16px;
+            padding: 6px 12px;
+            width: 100%;
+            margin-top: 12px;
+        }
+}

@@ -13,8 +13,7 @@ export default function Footer() {
               Mirax
             </h3>
             <p className="text-sm text-white/70 max-w-xs">
-              Агентство по разработке сайтов на WordPress,
-              оптимизированных под ИИ-поиск, ChatGPT, Яндекс Алису и Gemini.
+              Агентство по разработке сайтов на WordPress, оптимизированных под ИИ-поиск, ChatGPT, Яндекс Алису и Gemini.
               Работаем с проектами в Москве и по всему миру.
             </p>
           </div>
@@ -39,6 +38,11 @@ export default function Footer() {
                 <Link href="/services/ai-promotion" className="hover:text-white">
                   Продвижение и AIO
                 </Link>
+                  </li>
+                <li>
+                 <Link href="/ai-web-design-moskva" className="hover:text-white">
+                 AI-дизайн сайтов
+                 </Link>
               </li>
             </ul>
           </div>
@@ -104,7 +108,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Mirax. Все права защищены.
           </span>
           <span>
-            Веб-сайты, оптимизированные для ИИ, и стратегия «все в одном»
+            Веб-сайты, оптимизированные для ИИ, и стратегия «под ключ»
           </span>
         </div>
 
