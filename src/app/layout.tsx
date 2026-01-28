@@ -1,5 +1,5 @@
 import './globals.css'
-import HeaderMain from "@/components/HeaderNew";
+import Header from "@/components/Header";
 import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
 import { Funnel_Display } from 'next/font/google';
@@ -43,7 +43,7 @@ export default function RootLayout({
        <body className="font-base bg-slate-50 text-black">
         <ClientEffects>
         {/* <Header /> */}
-        <HeaderMain />
+        <Header />
           <main>{children}</main>
           <CookieBanner />
         <Footer />

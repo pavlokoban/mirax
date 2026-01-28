@@ -97,6 +97,13 @@ export default function Footer() {
               >
                 Политика конфиденциальности
               </Link>
+              <br />
+              <Link
+                href="/personal-data-consent"
+                className="text-xs text-white/50 hover:text-white"
+              >
+                Согласие на обработку персональных данных
+              </Link>
             </div>
           </div>
 
