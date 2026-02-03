@@ -11,41 +11,81 @@ import { AIButton } from "@/components/ui/ai-button";
 import ruFlag from "@/assets/flags/ru.svg";
 import { gsap } from "gsap";
 
+// function generateRealisticGraph(points: number) {
+//   const values: number[] = [];
+//   let current = 0.18;
+
+//   for (let i = 0; i < points; i++) {
+//     const progress = i / (points - 1);
+
+//     // базовый тренд
+//     let trend = 0.002;
+
+//     // после середины — явное ускорение роста
+//     if (progress > 0.5) {
+//       trend += (progress - 0.5) * 0.112;
+//     }
+
+//     // шум
+//     const noise = (Math.random() - 0.5) * 0.33;
+
+//     // редкие провалы (реальные данные)
+//     const dip =
+//       Math.random() < 0.07
+//         ? -(Math.random() * 0.1)
+//         : 0;
+
+//     current += trend + noise + dip;
+
+//     // ограничения
+//     current = Math.max(0.12, current);
+//     current = Math.min(0.98, current);
+
+//     values.push(current);
+//   }
+
+//   return values;
+// }
 function generateRealisticGraph(points: number) {
   const values: number[] = [];
-  let current = 0.18;
 
   for (let i = 0; i < points; i++) {
-    const progress = i / (points - 1);
+    const t = i / (points - 1);
 
-    // базовый тренд
-    let trend = 0.002;
+    // 1. Базовый экспоненциальный рост
+    const base =
+      Math.pow(t, 1.45) * 0.75;
 
-    // после середины — явное ускорение роста
-    if (progress > 0.5) {
-      trend += (progress - 0.5) * 0.112;
-    }
+    // 2. Волны, усиливающиеся к концу
+    const volatility =
+      (0.06 + t * 0.18) *
+      (
+        Math.sin(t * Math.PI * 3.2) +
+        Math.sin(t * Math.PI * 7.5) * 0.6
+      );
 
-    // шум
-    const noise = (Math.random() - 0.5) * 0.33;
-
-    // редкие провалы (реальные данные)
-    const dip =
-      Math.random() < 0.07
-        ? -(Math.random() * 0.1)
+    // 3. Финальный буст (последняя треть)
+    const lateBoost =
+      t > 0.72
+        ? Math.pow((t - 0.72) / 0.28, 1.4) * 0.35
         : 0;
 
-    current += trend + noise + dip;
+    // 4. Микрошум (очень слабый)
+    const noise = (Math.random() - 0.5) * 0.015;
+
+    let value = base + volatility + lateBoost + noise;
 
     // ограничения
-    current = Math.max(0.12, current);
-    current = Math.min(0.98, current);
+    value = Math.max(0.06, Math.min(value, 1));
 
-    values.push(current);
+    values.push(value);
   }
 
   return values;
 }
+
+
+
 
 /* ------------------------------------------------------------------ */
 
@@ -118,11 +158,26 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
       />
 
       {/* GRAPH */}
-      <svg
+      {/* <svg
         viewBox="0 0 1200 300"
         preserveAspectRatio="none"
         className="absolute bottom-0 left-0 w-full h-[45%]"
-      >
+      > */}
+<svg
+  viewBox="0 0 100 100"
+  preserveAspectRatio="none"
+  className="
+    absolute bottom-0
+    left-0
+    w-screen
+    h-[45%]
+    pointer-events-none
+    z-[2]
+  "
+>
+
+
+
         <defs>
           <linearGradient id="fadeUp" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor="white" />
@@ -131,7 +186,7 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
           </linearGradient>
         </defs>
 
-        {graph.map((v, i) => {
+        {/* {graph.map((v, i) => {
           const x = (i / (GRAPH_POINTS - 1)) * 1200;
           const h = v * GRAPH_HEIGHT;
 
@@ -157,7 +212,32 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
               }}
             />
           );
-        })}
+        })} */}
+      {graph.map((v, i) => {
+  const x = (i / (GRAPH_POINTS - 1)) * 100;
+  // const yTop = 100 - v * 100;
+const jitter = 0.85 + Math.random() * 0.3;
+const yTop = 100 - v * 100 * jitter;
+  return (
+    <motion.line
+      key={i}
+      x1={x}
+      x2={x}
+      y1={100}
+      y2={100} // старт внизу
+      stroke="rgba(0,0,0,0.18)"
+      strokeWidth="0.15"
+      animate={{ y2: yTop }}
+      transition={{
+  delay: i * 0.015,
+  duration: 1.1,
+  ease: [0.22, 0.61, 0.36, 1],
+      }}
+    />
+  );
+})}
+
+
       </svg>
 
       <Container>
@@ -257,7 +337,7 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
     className="
       absolute -bottom-24 left-1/2 -translate-x-1/2
       w-[140%] h-[60%]
-      bg-[#8b7cff]/30
+
       blur-[160px]
       opacity-80
       rounded-full
