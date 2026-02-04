@@ -7,7 +7,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-    --font-display: 'Philosopher', "Funnel Display", sans-serif;
+    --font-display: "Montserrat", 'Philosopher', "Funnel Display", sans-serif;
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.13 0.028 261.692);
@@ -119,9 +119,11 @@
 } */
  .hero-dots {
   background-color: #f8fafc;
+    /* background-color: #ffffff; */
   /* background-position: fixed; */
   background-image: radial-gradient(
     rgba(0, 0, 0, 0.16) 1px,
+        rgba(0, 0, 0, 0.06) 1px,
     transparent 1px
   );
   background-size: 24px 24px;
@@ -130,7 +132,9 @@
 
 
 body {
-  font-family: 'Philosopher', "Funnel Display", Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', 'Philosopher', "Funnel Display", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
 }
 
 .dark {
@@ -251,6 +255,7 @@ body {
 }
 h1, h2, h3, h4 {
   will-change: transform, filter, opacity;
+  font-family: 'Geologica', 'Poiret One', 'Montserrat', 'Philosopher', "Funnel Display", Arial, Helvetica, sans-serif;
 }
 /* ===== Heading line reveal (local) ===== */
 
@@ -306,4 +311,39 @@ h1, h2, h3, h4 {
   .hero-title {
     font-size: 5rem;
   }
+}
+@layer components {
+  .burger-dot {
+    @apply
+      w-1.5 h-1.5
+      rounded-full
+      bg-black
+      transition-all
+      duration-200
+      ease-out
+      group-hover:scale-125;
+  }
+}
+
+
+/* underline hover */
+.a-anim {
+  position: relative;
+  overflow: hidden;
+}
+.a-anim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 4px;
+  background: black;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.a-anim:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }

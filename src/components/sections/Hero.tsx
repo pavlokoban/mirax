@@ -1,5 +1,6 @@
 "use client";
 
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import Container from "@/components/Container";
 import Link from "next/link";
@@ -11,41 +12,29 @@ import { AIButton } from "@/components/ui/ai-button";
 import ruFlag from "@/assets/flags/ru.svg";
 import { gsap } from "gsap";
 
-// function generateRealisticGraph(points: number) {
-//   const values: number[] = [];
-//   let current = 0.18;
 
-//   for (let i = 0; i < points; i++) {
-//     const progress = i / (points - 1);
+function useGraphPoints(basePoints: number) {
+  const [points, setPoints] = useState(basePoints);
 
-//     // базовый тренд
-//     let trend = 0.002;
+  useEffect(() => {
+    const calc = () => {
+      const w = window.innerWidth;
 
-//     // после середины — явное ускорение роста
-//     if (progress > 0.5) {
-//       trend += (progress - 0.5) * 0.112;
-//     }
+      if (w < 368) return setPoints(Math.max(20, Math.floor(basePoints / 3)));
+      if (w < 768) return setPoints(Math.max(30, Math.floor(basePoints / 2)));
 
-//     // шум
-//     const noise = (Math.random() - 0.5) * 0.33;
+      setPoints(basePoints);
+    };
 
-//     // редкие провалы (реальные данные)
-//     const dip =
-//       Math.random() < 0.07
-//         ? -(Math.random() * 0.1)
-//         : 0;
+    calc();
+    window.addEventListener("resize", calc);
+    return () => window.removeEventListener("resize", calc);
+  }, [basePoints]);
 
-//     current += trend + noise + dip;
+  return points;
+}
 
-//     // ограничения
-//     current = Math.max(0.12, current);
-//     current = Math.min(0.98, current);
 
-//     values.push(current);
-//   }
-
-//   return values;
-// }
 function generateRealisticGraph(points: number) {
   const values: number[] = [];
 
@@ -84,13 +73,7 @@ function generateRealisticGraph(points: number) {
   return values;
 }
 
-
-
-
-/* ------------------------------------------------------------------ */
-
-const GRAPH_POINTS = 150;
-const GRAPH_HEIGHT = 260;
+// const GRAPH_POINTS = 150;
 
 function AIIcon({ src, alt }: { src: string; alt: string }) {
   return (
@@ -101,6 +84,9 @@ function AIIcon({ src, alt }: { src: string; alt: string }) {
 }
 
 export default function Hero() {
+const BASE_GRAPH_POINTS = 150;
+const graphPoints = useGraphPoints(BASE_GRAPH_POINTS);
+const GRAPH_HEIGHT = 260;
 const titleRef = useRef<HTMLHeadingElement | null>(null);
 
   useEffect(() => {
@@ -124,14 +110,16 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
 
   // генерация графика (один раз)
   const graph = useMemo(
-    () => generateRealisticGraph(GRAPH_POINTS),
-    []
+    // () => generateRealisticGraph(GRAPH_POINTS),
+    // []
+    () => generateRealisticGraph(graphPoints),
+  [graphPoints]
   );
 
   // задержка появления орбит
   const [showOrbit, setShowOrbit] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setShowOrbit(true), 2200);
+    const t = setTimeout(() => setShowOrbit(true), 3100);
     return () => clearTimeout(t);
   }, []);
 
@@ -142,9 +130,9 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
 <div
   className="
     pointer-events-none
-    absolute bottom-[-180px] left-1/2 -translate-x-1/2
+    absolute bottom-[0px] left-1/2 -translate-x-1/2
     w-[160%] h-[60%]
-    bg-[#8b7cff]/35
+    bg-[#8b7cff]/0
     blur-[200px]
     opacity-90
     z-[1]
@@ -176,8 +164,6 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
   "
 >
 
-
-
         <defs>
           <linearGradient id="fadeUp" x1="0" y1="1" x2="0" y2="0">
             <stop offset="0%" stopColor="white" />
@@ -185,59 +171,31 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
             <stop offset="100%" stopColor="transparent" />
           </linearGradient>
         </defs>
+     {graph.map((v, i) => {
+  const step = 100 / graph.length;
+  const x = i * step;
 
-        {/* {graph.map((v, i) => {
-          const x = (i / (GRAPH_POINTS - 1)) * 1200;
-          const h = v * GRAPH_HEIGHT;
+  const jitter = 0.85 + Math.random() * 0.3;
+  const yTop = 100 - v * 100 * jitter;
 
-          return (
-            <motion.line
-              key={i}
-              x1={x}
-              x2={x}
-              y1={300}
-              y2={300 - h}
-              stroke="rgba(0,0,0,0.16)"
-              strokeWidth="2"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{
-                delay: i * 0.015,
-                duration: 0.45,
-                ease: "easeOut",
-              }}
-              style={{
-                maskImage: "url(#fadeUp)",
-                WebkitMaskImage: "url(#fadeUp)",
-              }}
-            />
-          );
-        })} */}
-      {graph.map((v, i) => {
-  const x = (i / (GRAPH_POINTS - 1)) * 100;
-  // const yTop = 100 - v * 100;
-const jitter = 0.85 + Math.random() * 0.3;
-const yTop = 100 - v * 100 * jitter;
   return (
     <motion.line
       key={i}
       x1={x}
       x2={x}
       y1={100}
-      y2={100} // старт внизу
+      y2={100}
       stroke="rgba(0,0,0,0.18)"
       strokeWidth="0.15"
       animate={{ y2: yTop }}
       transition={{
-  delay: i * 0.015,
-  duration: 1.1,
-  ease: [0.22, 0.61, 0.36, 1],
+        delay: i * 0.015,
+        duration: 1.1,
+        ease: [0.22, 0.61, 0.36, 1],
       }}
     />
   );
 })}
-
-
       </svg>
 
       <Container>
@@ -253,36 +211,41 @@ const yTop = 100 - v * 100 * jitter;
                Веб-сайты, оптимизированные для ИИ поиск и SEO 🇷🇺  
             </span> */}
 
-            <span className="inline-flex items-center gap-2 rounded-full px-6 py-2 text-xs font-medium mb-4 border border-black text-brand">
-  Веб-сайты, оптимизированные для ИИ поиск и SEO
+            <span className="inline-flex items-center gap-2 rounded-full py-2 text-xs font-medium mb-4 text-brand">
+  Сайты, готовые к поиску будущего
 <img src={ruFlag.src} alt="RU" className="w-4 h-4" />
 </span>
-
-
-            {/* <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight mb-6">
-              Moderne, KI-optimierte Websites
-              <span className="block text-brand">in Deutschland</span>
-            </h1> */}
            
 <h1
  ref={titleRef}
   className="hero-title font-black leading-[1.05]"
   data-reveal
 >
-  <span className="line-mask">
-    <span className="line">Разработка сайтов, </span>
+  {/* <span className="line-mask">
+    <span className="line">Веб-разработка, </span>
   </span>
   <span className="line-mask">
-    <span className="line">оптимизированных </span>
+    <span className="line">где ИИ и люди </span>
   </span>
     <span className="line-mask">
-    <span className="line">под ИИ-поиск</span>
+    <span className="line">говорят на одном языке</span>
+  </span> */}
+<span className="line-mask">
+    <span className="line">Создаем сайты  </span>
   </span>
+  <span className="line-mask">
+    <span className="line">для людей </span>
+      </span>
+      <span className="line-mask">
+    <span className="line">в эпоху ИИ </span>
+  </span>
+
+
 </h1>
 <br></br>
             <p className="text-md mb-10 text-black">
-              Мы создаём сайты, которые рекомендуют Алиса, Gemini и другие ИИ-системы — так же, как раньше это делал Яндекс SEO. Современные пользователи всё чаще ищут услуги не в Яндекс, а через ИИ-ассистентов.<br />
-Мы проектируем сайты с учётом логики ИИ-ранжирования: экспертный контент, правильная структура, микроразметка, E-E-A-T и семантика нового поколения.
+              Мы создаём сайты, которые рекомендуют Алиса, Gemini и другие ИИ-системы — так же, как раньше это делал Яндекс SEO. <br />
+Мы проектируем понятные сайты для людей с учётом логики ИИ-ранжирования: экспертный контент, правильная структура, микроразметка, E-E-A-T и семантика нового поколения.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -292,19 +255,10 @@ const yTop = 100 - v * 100 * jitter;
                 </AIButton>
               </Link>
               <Link href="/#services">
-                <AIButton variant="outline" style={{ background: "#ffffffff", color: "black" }}>Наши услуги</AIButton>
+                <AIButton variant="outline" style={{ background: "#ffffffff", color: "black", border: "none" }}>Наши услуги</AIButton>
               </Link>
             </div>
 
-            {/* <ScrambledText
-              className="mt-6"
-              radius={100}
-              duration={1.2}
-              speed={0.5}
-              scrambleChars="!@#$%^&*()_+-=[]{};:,.<>/?"
-            >
-              ✓ WordPress ✓  Opencart ✓  Классическое SEO ✓  ИИ Структура
-            </ScrambledText> */}
           </motion.div>
 
           {/* RIGHT — ORBITS */}
@@ -313,7 +267,7 @@ const yTop = 100 - v * 100 * jitter;
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative"
+              className="relative hidden md:block"
             >
               <div className="absolute -inset-8 bg-brand/20 blur-3xl rounded-full" />
   {/* <div className="absolute inset-0 rounded-full bg-[#00f176]/25 blur-[120px] opacity-80" /> */}
