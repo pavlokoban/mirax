@@ -1,24 +1,28 @@
 import { useRef, useEffect, useCallback, useState } from 'react';
 import { gsap } from 'gsap';
 import './MagicBento.css';
+import type { CSSProperties, ReactNode } from "react";
+import type { RefObject } from "react";
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const MOBILE_BREAKPOINT = 768;
-
+type ParticleElement = HTMLDivElement;
 const cardData = [
   {
     color: '#060010',
-    title: 'Понимание',
-    description: 'Экспертная структура страниц: ИИ понимает, кто вы и чем занимаетесь',
-    label: 'Подход'
+      title: 'Контент под вопросы пользователей',
+    description: 'Сайты «отвечают», а не продают в лоб',
+    label: 'Для людей прежде всего'
+   
   },
   {
     color: '#060010',
-    title: 'Микроразметка и сущности',
-    description: 'ИИ легко извлекает факты',
-    label: 'Структура'
+     title: 'UI/UX сайта',
+    description: 'Структура интерфейса, созданная для удобства человека',
+    label: 'Для людей прежде всего'
+   
   },
   {
     color: '#060010',
@@ -28,25 +32,26 @@ const cardData = [
   },
   {
     color: '#060010',
-    title: 'Чистый код сайта',
+       title: 'Понимание',
+    description: 'Экспертная структура страниц: ИИ понимает, кто вы и чем занимаетесь',
+    label: 'Подход'
+   
+  },
+  {
+    color: '#060010',
+    title: 'Микроразметка и сущности',
+    description: 'ИИ легко извлекает факты',
+    label: 'Структура'
+  },
+  {
+    color: '#060010',
+ title: 'Чистый код сайта',
     description: 'Без мусора и конфликтов',
     label: 'Программирование'
-  },
-  {
-    color: '#060010',
-    title: 'UI/UX сайта',
-    description: 'Структура интерфейса, созданная для удобства человека',
-    label: 'Для людей прежде всего'
-  },
-  {
-    color: '#060010',
-    title: 'Контент под вопросы пользователей',
-    description: 'Сайты «отвечают», а не продают в лоб',
-    label: 'Для людей прежде всего'
   }
 ];
 
-const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
+const createParticleElement = (x: number, y: number, color = DEFAULT_GLOW_COLOR) => {
   const el = document.createElement('div');
   el.className = 'particle';
   el.style.cssText = `
@@ -64,12 +69,19 @@ const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
   return el;
 };
 
-const calculateSpotlightValues = radius => ({
+const calculateSpotlightValues = (radius: number) => ({
   proximity: radius * 0.5,
   fadeDistance: radius * 0.75
 });
 
-const updateCardGlowProperties = (card, mouseX, mouseY, glow, radius) => {
+const updateCardGlowProperties = (
+  card: HTMLElement, 
+  mouseX: number, 
+  mouseY: number, 
+//   glow: HTMLElement, 
+glow: number,
+  radius: number
+) => {
   const rect = card.getBoundingClientRect();
   const relativeX = ((mouseX - rect.left) / rect.width) * 100;
   const relativeY = ((mouseY - rect.top) / rect.height) * 100;
@@ -80,24 +92,39 @@ const updateCardGlowProperties = (card, mouseX, mouseY, glow, radius) => {
   card.style.setProperty('--glow-radius', `${radius}px`);
 };
 
+type ParticleCardProps = {
+  children: ReactNode;
+  className?: string;
+  disableAnimations?: boolean;
+  style?: CSSProperties;
+  particleCount?: number;
+  glowColor?: string;
+  enableTilt?: boolean;
+  clickEffect?: boolean;
+  enableMagnetism?: boolean;
+};
+
+
 const ParticleCard = ({
   children,
-  className = '',
+  className = "",
   disableAnimations = false,
   style,
   particleCount = DEFAULT_PARTICLE_COUNT,
   glowColor = DEFAULT_GLOW_COLOR,
   enableTilt = true,
-  clickEffect = false,
-  enableMagnetism = false
-}) => {
-  const cardRef = useRef(null);
-  const particlesRef = useRef([]);
+  clickEffect = true,
+  enableMagnetism = true,
+}: ParticleCardProps) => {
+//   const cardRef = useRef(null);
+const cardRef = useRef<HTMLDivElement | null>(null);
+const particlesRef = useRef<HTMLDivElement[]>([]);
   const timeoutsRef = useRef([]);
   const isHoveredRef = useRef(false);
-  const memoizedParticles = useRef([]);
+  const memoizedParticles = useRef<HTMLDivElement[]>([]);
   const particlesInitialized = useRef(false);
-  const magnetismAnimationRef = useRef(null);
+  const magnetismAnimationRef = useRef<gsap.core.Tween | null>(null);
+
 
   const initializeParticles = useCallback(() => {
     if (particlesInitialized.current || !cardRef.current) return;
@@ -139,7 +166,7 @@ const ParticleCard = ({
       const timeoutId = setTimeout(() => {
         if (!isHoveredRef.current || !cardRef.current) return;
 
-        const clone = particle.cloneNode(true);
+        const clone = particle.cloneNode(true) as HTMLDivElement;
         cardRef.current.appendChild(clone);
         particlesRef.current.push(clone);
 
@@ -163,8 +190,8 @@ const ParticleCard = ({
           yoyo: true
         });
       }, index * 100);
-
-      timeoutsRef.current.push(timeoutId);
+const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+    //   timeoutsRef.current.push(timeoutId);
     });
   }, [initializeParticles]);
 
@@ -211,8 +238,8 @@ const ParticleCard = ({
       }
     };
 
-    const handleMouseMove = e => {
-      if (!enableTilt && !enableMagnetism) return;
+const handleMouseMove = (e: MouseEvent) => {
+  if (!enableTilt && !enableMagnetism) return;
 
       const rect = element.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -246,8 +273,8 @@ const ParticleCard = ({
       }
     };
 
-    const handleClick = e => {
-      if (!clickEffect) return;
+ const handleClick = (e: MouseEvent) => {
+  if (!clickEffect) return;
 
       const rect = element.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -317,14 +344,24 @@ const ParticleCard = ({
   );
 };
 
+type GlobalSpotlightProps = {
+//   gridRef: RefObject<HTMLDivElement>;
+gridRef: React.RefObject<HTMLDivElement | null>;
+  disableAnimations?: boolean;
+  enabled?: boolean;
+  spotlightRadius?: number;
+  glowColor?: string;
+};
+
 const GlobalSpotlight = ({
   gridRef,
   disableAnimations = false,
   enabled = true,
   spotlightRadius = DEFAULT_SPOTLIGHT_RADIUS,
-  glowColor = DEFAULT_GLOW_COLOR
-}) => {
-  const spotlightRef = useRef(null);
+  glowColor = DEFAULT_GLOW_COLOR,
+}: GlobalSpotlightProps) => {
+//   const spotlightRef = useRef(null);
+const spotlightRef = useRef<HTMLDivElement | null>(null);
   const isInsideSection = useRef(false);
 
   useEffect(() => {
@@ -353,8 +390,8 @@ const GlobalSpotlight = ({
     `;
     document.body.appendChild(spotlight);
     spotlightRef.current = spotlight;
-
-    const handleMouseMove = e => {
+// document.addEventListener('mousemove', handleMouseMove);
+const handleMouseMove = (e: MouseEvent) => {
       if (!spotlightRef.current || !gridRef.current) return;
 
       const section = gridRef.current.closest('.bento-section');
@@ -363,8 +400,11 @@ const GlobalSpotlight = ({
         rect && e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom;
 
       isInsideSection.current = mouseInside || false;
-      const cards = gridRef.current.querySelectorAll('.magic-bento-card');
+    //   const cards = gridRef.current.querySelectorAll('.magic-bento-card');
+      const cards = gridRef.current.querySelectorAll<HTMLElement>('.magic-bento-card');
 
+
+      
       if (!mouseInside) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
@@ -372,7 +412,8 @@ const GlobalSpotlight = ({
           ease: 'power2.out'
         });
         cards.forEach(card => {
-          card.style.setProperty('--glow-intensity', '0');
+        //   card.style.setProperty('--glow-intensity', '0');
+          (card as HTMLElement).style.setProperty('--glow-intensity', '0');
         });
         return;
       }
@@ -424,9 +465,14 @@ const GlobalSpotlight = ({
 
     const handleMouseLeave = () => {
       isInsideSection.current = false;
-      gridRef.current?.querySelectorAll('.magic-bento-card').forEach(card => {
-        card.style.setProperty('--glow-intensity', '0');
-      });
+    //   gridRef.current?.querySelectorAll('.magic-bento-card').forEach(card => {
+    //     card.style.setProperty('--glow-intensity', '0');
+    //   });
+    gridRef.current
+  ?.querySelectorAll<HTMLElement>('.magic-bento-card')
+  .forEach(card => {
+    card.style.setProperty('--glow-intensity', '0');
+  });
       if (spotlightRef.current) {
         gsap.to(spotlightRef.current, {
           opacity: 0,
@@ -449,7 +495,17 @@ const GlobalSpotlight = ({
   return null;
 };
 
-const BentoCardGrid = ({ children, gridRef }) => (
+// interface BentoCardGridProps {
+//   children: ReactNode;
+//   gridRef: RefObject<HTMLDivElement>;
+// }
+interface BentoCardGridProps {
+  children: React.ReactNode;
+  gridRef: React.RefObject<HTMLDivElement | null>;
+}
+
+
+const BentoCardGrid = ({ children, gridRef }: BentoCardGridProps) => (
   <div className="card-grid bento-section" ref={gridRef}>
     {children}
   </div>
@@ -483,7 +539,8 @@ const MagicBento = ({
   clickEffect = true,
   enableMagnetism = true
 }) => {
-  const gridRef = useRef(null);
+//   const gridRef = useRef(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMobileDetection();
   const shouldDisableAnimations = disableAnimations || isMobile;
 
@@ -540,7 +597,8 @@ const MagicBento = ({
               ref={el => {
                 if (!el) return;
 
-                const handleMouseMove = e => {
+                // const handleMouseMove = e => {
+                const handleMouseMove = (e: MouseEvent) => {
                   if (shouldDisableAnimations) return;
 
                   const rect = el.getBoundingClientRect();
@@ -595,7 +653,8 @@ const MagicBento = ({
                   }
                 };
 
-                const handleClick = e => {
+                // const handleClick = e => {
+                const handleClick = (e: MouseEvent) => {
                   if (!clickEffect || shouldDisableAnimations) return;
 
                   const rect = el.getBoundingClientRect();

@@ -43,7 +43,7 @@ export default function Stack() {
   return (
     <section
       ref={container}
-      className="w-full py-12 bg-black overflow-hidden"
+      className="w-full py-12 bg-[#060010] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-4 md:grid-cols-8 gap-10 items-center justify-items-center">

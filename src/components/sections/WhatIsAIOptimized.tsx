@@ -34,7 +34,7 @@ const items = [
 
 export default function WhatIsAIOptimized() {
   return (
-   <section className="w-full py-28 bg-black bg-gradient-to-br from-black via-black to-[#1a0b2e]">
+   <section className="w-full py-28 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
