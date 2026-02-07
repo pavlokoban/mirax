@@ -1,8 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useRef } from 'react'
 import Image from 'next/image'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+// Регистрируем плагины
+gsap.registerPlugin(ScrollTrigger)
 
 const techStack = [
   { name: 'TypeScript', src: '/stack/ts.svg' },
@@ -16,59 +21,47 @@ const techStack = [
 ]
 
 export default function Stack() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  })
+  const container = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    // Анимация появления
+    gsap.from(".stack-item", {
+      x: -1200,             // Влет из глубокого лево
+      opacity: 0,
+      scaleX: 3,            // Растяжение по горизонтали (эффект скорости)
+      skewX: 20,            // Наклон
+      stagger: 0.05,        // Очередность
+      duration: 1,
+      ease: "power4.out",   // Резкое торможение
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 85%",   // Запуск, когда секция внизу экрана
+      }
+    })
+  }, { scope: container })
 
   return (
     <section
-      ref={ref}
-      className="w-full py-10 border-t border-black/10 dark:border-white/10"
+      ref={container}
+      className="w-full py-12 bg-black overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          className="flex flex-wrap items-center justify-center gap-10"
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.12,
-              },
-            },
-          }}
-        >
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-10 items-center justify-items-center">
           {techStack.map((tech) => (
-            <motion.div
+            <div
               key={tech.name}
-              variants={{
-                hidden: {
-                  opacity: 0,
-                  x: -20,
-                },
-                visible: {
-                  opacity: 1,
-                  x: 0,
-                  transition: {
-                    duration: 0.5,
-                    ease: 'easeOut',
-                  },
-                },
-              }}
-              className="opacity-70 hover:opacity-100 transition"
+              className="stack-item will-change-transform"
             >
               <Image
                 src={tech.src}
                 alt={tech.name}
-                width={48}
-                height={48}
-                className="h-10 w-auto"
+                width={60}
+                height={60}
+                className="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-60"
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )
