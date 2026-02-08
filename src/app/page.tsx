@@ -7,6 +7,7 @@ import WhoNeedsAIOptimized from "@/components/sections/WhoNeedsAIOptimized";
 import HowWeWorkAndWhyUs from "@/components/sections/HowWeWorkAndWhyUs";
 // import Portfolio from "@/components/sections/Portfolio";
 import FAQ from "@/components/sections/FAQ";
+import Divider from "@/components/sections/Divider";
 import CTASection from "@/components/sections/CTASection";
 import ContactFormRus from "@/components/contact-form/ContactFormRus";
 
@@ -22,6 +23,7 @@ export default function HomePage() {
       <HowWeWorkAndWhyUs />
       {/* <Portfolio /> */}
       <FAQ />
+      <Divider />
       {/* <CTASection /> */}
       <ContactFormRus />
     </div>

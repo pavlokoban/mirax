@@ -4,7 +4,7 @@ import './MagicBento.css';
 import type { CSSProperties, ReactNode } from "react";
 import type { RefObject } from "react";
 
-const DEFAULT_PARTICLE_COUNT = 12;
+const DEFAULT_PARTICLE_COUNT = 67;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = '132, 0, 255';
 const MOBILE_BREAKPOINT = 768;
@@ -173,8 +173,10 @@ const particlesRef = useRef<HTMLDivElement[]>([]);
         gsap.fromTo(clone, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(1.7)' });
 
         gsap.to(clone, {
-          x: (Math.random() - 0.5) * 100,
-          y: (Math.random() - 0.5) * 100,
+        //   x: (Math.random() - 0.5) * 100,
+        //   y: (Math.random() - 0.5) * 100,
+        x: (Math.random() - 0.5) * 220,
+        y: (Math.random() - 0.5) * 220,
           rotation: Math.random() * 360,
           duration: 2 + Math.random() * 2,
           ease: 'none',
@@ -183,13 +185,15 @@ const particlesRef = useRef<HTMLDivElement[]>([]);
         });
 
         gsap.to(clone, {
-          opacity: 0.3,
+        //   opacity: 0.3,
+        opacity: 0.75,
           duration: 1.5,
           ease: 'power2.inOut',
           repeat: -1,
           yoyo: true
         });
-      }, index * 100);
+    //   }, index * 100);
+          }, index * 25);
 const timeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
     //   timeoutsRef.current.push(timeoutId);
     });
@@ -414,6 +418,7 @@ const handleMouseMove = (e: MouseEvent) => {
         cards.forEach(card => {
         //   card.style.setProperty('--glow-intensity', '0');
           (card as HTMLElement).style.setProperty('--glow-intensity', '0');
+          
         });
         return;
       }
@@ -542,7 +547,9 @@ const MagicBento = ({
 //   const gridRef = useRef(null);
   const gridRef = useRef<HTMLDivElement | null>(null);
   const isMobile = useMobileDetection();
-  const shouldDisableAnimations = disableAnimations || isMobile;
+//   const shouldDisableAnimations = disableAnimations || isMobile;
+const shouldDisableAnimations = disableAnimations || (isMobile && particleCount > 25);
+
 
   return (
     <>

@@ -36,18 +36,14 @@ export default function WhatIsAIOptimized() {
   return (
    <section className="w-full py-28 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-10 max-w-3xl text-white tracking-tight">
+        <h2 className="text-5xl md:text-6xl font-bold mb-10 max-w-4xl text-white tracking-tight">
           Что значит «сайт, оптимизированный под ИИ»
         </h2>
-
         {/* Intro text */}
-        <div className="max-w-2xl text-lg text-white mb-16 space-y-4">
-          <p>
+        <p className="text-white">
             Это не шаблон и не плагин. Это подход к разработке сайта на этапе проектирования.
           </p>
-        </div>
                 {/* Principles */}
 
 <MagicBento 
@@ -58,7 +54,7 @@ export default function WhatIsAIOptimized() {
   enableTilt
   enableMagnetism
   clickEffect
-  spotlightRadius={420}
+  spotlightRadius={720}
   particleCount={12}
   glowColor="132, 0, 255"
   disableAnimations={false}

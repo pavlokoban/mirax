@@ -215,3 +215,30 @@
   position: relative;
   user-select: none;
 }
+.magic-bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(132,0,255,0.35) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.magic-bento-card::before {
+  animation: starsDrift 40s linear infinite;
+}
+
+@keyframes starsDrift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 600px 600px;
+  }
+}
+
+.magic-starfield { z-index: 1; }
+.magic-bento-card__header,
+.magic-bento-card__content { z-index: 2; }
+.magic-starfield { outline: 2px solid red; }

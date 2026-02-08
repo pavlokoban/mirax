@@ -1,0 +1,50 @@
+.magnetLines-container {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--rows), 1fr);
+
+  justify-items: center;
+  align-items: center;
+
+  width: 80vmin;
+  height: 80vmin;
+}
+
+.magnetLines-container span {
+  display: block;
+  transform-origin: center;
+  will-change: transform;
+  transform: rotate(var(--rotate));
+}
+.magnetLines-container {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  width: 100vw;
+  height: min(10vh, 100px);
+
+  margin: 0 auto;
+  pointer-events: none;
+}
+.magnetLines-container span {
+  display: block;
+  border-radius: 999px;
+  transform-origin: center;
+  will-change: transform;
+  transform: rotate(var(--rotate));
+  opacity: 0.85;
+}
+.magnetLines-container {
+  mask-image: radial-gradient(
+    circle at center,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,.8) 50%,
+    rgba(0,0,0,0) 100%
+  );
+}
+@media (max-width: 768px) {
+  .magnetLines-container {
+    margin-inline: auto;
+  }
+}
