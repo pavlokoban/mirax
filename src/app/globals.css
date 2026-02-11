@@ -124,14 +124,12 @@
 } */
  .hero-dots {
   background-color: #f8fafc;
-    /* background-color: #ffffff; */
-  /* background-position: fixed; */
-  background-image: radial-gradient(
+  /* background-image: radial-gradient(
     rgba(0, 0, 0, 0.16) 1px,
         rgba(0, 0, 0, 0.06) 1px,
     transparent 1px
   );
-  background-size: 24px 24px;
+  background-size: 24px 24px; */
   will-change: transform;
 }
 

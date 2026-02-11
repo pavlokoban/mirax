@@ -88,17 +88,8 @@ export default function Services() {
         {/* Services list */}
         {/* <div className="flex flex-col divide-y divide-black/10"> */}
 
+<div className="flex flex-col divide-y divide-black/20">
 
-       <div  className="
-  group
-  flex
-  flex-col
-  gap-6
-  py-10
-  md:flex-row
-  md:items-center
-  md:justify-between
-  ">
           {services.map((service, index) => (
             <motion.a
               key={index}

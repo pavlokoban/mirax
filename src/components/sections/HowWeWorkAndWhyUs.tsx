@@ -50,7 +50,7 @@ export default function OneSpoilerProcess() {
   }, [open, index])
 
   return (
-    <section className="w-full pt-3 pb-6">
+    <section className="w-full pt-3 pb-12">
       <div className="max-w-5xl mx-auto px-6">
 
         {/* SPOILER TOGGLE */}
