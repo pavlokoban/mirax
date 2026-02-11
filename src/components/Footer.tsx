@@ -1,4 +1,5 @@
-import Link from 'next/link'
+import Link from 'next/link';
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -9,11 +10,17 @@ export default function Footer() {
 
           {/* BRAND */}
           <div>
-            <h3 className="text-xl font-semibold mb-4">
-              Mirax
-            </h3>
-            <p className="text-sm text-white/70 max-w-xs">
-              Агентство по разработке сайтов на WordPress, оптимизированных под ИИ-поиск, ChatGPT, Яндекс Алису и Gemini.
+       <Link href="/" className="block pb-4">
+          <Image
+            src="/logo-mirax-light.svg"
+            alt="Mirax Digital"
+            width={200}
+            height={50}
+            priority
+          />
+        </Link>
+            <p className="text-sm text-white/70 max-w-xs" style={{lineHeight: '2'}}>
+              Агентство по разработке сайтов для людей (UI/UX) на WordPress, и оптимизированных под ИИ-поиск(Яндекс Алису и Gemini).
               Работаем с проектами в Москве и по всему миру.
             </p>
           </div>
@@ -31,7 +38,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services/ai-ecommerce" className="hover:text-white">
-                  ИИ-оптимизированные интернет-магазины
+                  Интернет-магазины
                 </Link>
               </li>
               <li>
@@ -69,28 +76,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* CONTACTS / LEGAL */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">
-              Контакты
-            </h4>
-            <ul className="space-y-3 text-sm text-white/70">
-              <li>
-                <a
-                  href="mailto:hello@mirax.ru"
-                  className="hover:text-white"
-                >
-                  hello@mirax.ru
-                </a>
-              </li>
-              <li>
-                Москва, Россия
-              </li>
-            </ul>
-
-            <div className="mt-6">
+                        <div className="mt-6">
               <Link
                 href="/privacy-policy"
                 className="text-xs text-white/50 hover:text-white"
@@ -105,6 +91,44 @@ export default function Footer() {
                 Согласие на обработку персональных данных
               </Link>
             </div>
+          </div>
+
+          {/* CONTACTS / LEGAL */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4">
+              Контакты
+            </h4>
+              {/* <Image
+            src="/Moscow.svg"
+            alt="Mirax Digital Офис Москва"
+            width={64}
+            height={64}
+            priority
+          />  */}
+           <Image
+            src="/office-moscow-2.png"
+            alt="Mirax Digital Офис Москва"
+            width={64}
+            height={64}
+            priority
+          /> 
+            <ul className="space-y-3 text-sm text-white/70 py-2">
+              <li>
+              Москва, Пресненская наб., 12
+              </li>
+            <li>
+              <a
+                  href="tel:+74959876543"
+                  className="hover:text-white"
+                >Тел.: +7 (495) 987-65-43</a></li>
+              <li> <a
+                  href="mailto:hello@mirax.ru"
+                  className="hover:text-white"
+                >
+                  hello@mirax.ru
+                </a>
+              </li>
+            </ul>
           </div>
 
         </div>

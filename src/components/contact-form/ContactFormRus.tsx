@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styles from './ContactForm.module.css';
 import emailjs from "@emailjs/browser";
 import PhoneInput from 'react-phone-input-2';
+import CircularText from '../CircularText';
 import Link from 'next/link';
 
 const ContactFormRus: React.FC = () => {
@@ -244,14 +245,23 @@ const ContactFormRus: React.FC = () => {
           </div>
         </div>
 
-        <button type="submit" className={`${styles.submitButton}`} disabled={isLoading}>
+        {/* <button type="submit" className={`${styles.submitButton}`} disabled={isLoading}>
           <span className={styles.buttonText}>{isLoading ? 'Отправка...' : 'Отправить'}</span>
           <span className={styles.buttonWaves}></span>
-        </button>
+        </button> */}
+
+    <CircularText
+      text="ОСТАВИТЬ*ЗАЯВКУ*НА*ОЦЕНКУ*"
+      spinDuration={8}
+      onHover="slowDown"
+      disabled={isLoading}
+      isLoading={isLoading}
+
+    />
 
         <p className={styles.privacyText}>
-          Отправляя этот запрос, вы соглашаетесь, что ваши данные будут храниться и обрабатываться сайтом.
-          Для получения дополнительной информации ознакомьтесь с нашей Политикой конфиденциальности.
+          Отправляя этот запрос, Вы соглашаетесь, что Ваши данные будут <Link className={'a-anim-email'} href="/personal-data-consent">храниться и обрабатываться сайтом</Link>.
+          Для получения дополнительной информации ознакомьтесь с нашей <Link className={'a-anim-email'} href="/privacy-policy">Политикой конфиденциальности</Link>.
         </p>
       </form>
 

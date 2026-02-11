@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 import Script from 'next/script'
 
@@ -46,7 +45,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="w-full py-28">
+    <section className="w-full pt-28 pb-0">
       <div className="max-w-5xl mx-auto px-6">
 
         <h2 className="text-4xl md:text-5xl font-bold mb-16">
@@ -57,6 +56,7 @@ export default function FAQ() {
           {faqItems.map((item, index) => (
             <div key={index} className="py-6">
               <button
+              aria-expanded={openIndex === index}
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between text-left"
               >

@@ -37,8 +37,8 @@ export default function WhatIsAIOptimized() {
    <section className="w-full py-28 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-5xl md:text-6xl font-bold mb-10 max-w-4xl text-white tracking-tight">
-          Что значит «сайт, оптимизированный под ИИ»
+        <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl text-white tracking-tight">
+          Что значит «сайт под требования ИИ»?
         </h2>
         {/* Intro text */}
         <p className="text-white">

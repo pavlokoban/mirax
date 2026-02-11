@@ -50,13 +50,13 @@ export default function OneSpoilerProcess() {
   }, [open, index])
 
   return (
-    <section className="w-full py-28">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="w-full pt-3 pb-6">
+      <div className="max-w-5xl mx-auto px-6">
 
         {/* SPOILER TOGGLE */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="text-4xl md:text-5xl font-bold underline underline-offset-8"
+          className="font-bold underline underline-offset-8"
         >
           {open
             ? 'Скрыть процесс работы и подход'

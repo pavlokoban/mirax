@@ -19,10 +19,10 @@ export default function HomePage() {
       <Stack />
       <ServicesSection />
       <WhatIsAIOptimized />
-      <WhoNeedsAIOptimized />
-      <HowWeWorkAndWhyUs />
+      {/* <WhoNeedsAIOptimized /> */}
       {/* <Portfolio /> */}
       <FAQ />
+      <HowWeWorkAndWhyUs />
       <Divider />
       {/* <CTASection /> */}
       <ContactFormRus />
