@@ -8,25 +8,25 @@ const services = [
     title: 'Разработка сайтов, под требования ИИ',
     description:
       'Клиентские сайты, лендинги и корпоративные проекты на WordPress, готовые к AI-поиску.',
-    href: '/services/ai-websites',
+    href: '/razrabotka-saitov-pod-ii-moskva',
   },
   {
     title: 'Интернет-магазины UI/UX + ИИ',
     description:
       'Opencart / WooCommerce с правильной структурой категорий, товаров и экспертного контента.',
-    href: '/services/ai-ecommerce',
+    href: '/ii-internet-magaziny-moskva',
   },
   {
     title: 'Реклама, продвижение и адаптация сайтов под ИИ',
     description:
       'Анализ, переработка структуры, контента и семантики под Алиса, ChatGPT и Gemini, а также настройка рекламы.',
-    href: '/services/ai-promotion',
+    href: '/seo-aio-yandex-alisa-moskva',
   },
   {
     title: 'Создание дизайнов сайтов под ИИ',
     description:
       'Создание дизайна сайтов, учитывающих структуру и UI/UX под требования Алиса, ChatGPT и Gemini.',
-    href: '/services/ai-design',
+    href: '/ai-web-design-moskva',
   },
 ]
 

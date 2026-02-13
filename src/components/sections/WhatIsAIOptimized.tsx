@@ -41,7 +41,7 @@ export default function WhatIsAIOptimized() {
           Что значит «сайт под требования ИИ»?
         </h2>
         {/* Intro text */}
-        <p className="text-white">
+        <p className="max-w-3xl text-lg opacity-80 mb-14 text-white">
             Это не шаблон и не плагин. Это подход к разработке сайта на этапе проектирования.
           </p>
                 {/* Principles */}

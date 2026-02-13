@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e] text-white">
       <div className="max-w-7xl mx-auto px-6 py-20">
 
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -20,7 +20,7 @@ export default function Footer() {
           />
         </Link>
             <p className="text-sm text-white/70 max-w-xs" style={{lineHeight: '2'}}>
-              Агентство по разработке сайтов для людей (UI/UX) на WordPress, и оптимизированных под ИИ-поиск(Яндекс Алису и Gemini).
+              Агентство по разработке сайтов для людей (UI/UX) на WordPress, и оптимизированных под ИИ-поиск (Яндекс Алису и Gemini).
               Работаем с проектами в Москве и по всему миру.
             </p>
           </div>
@@ -32,22 +32,22 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <Link href="/services/ai-websites" className="hover:text-white">
+                <Link href="/razrabotka-saitov-pod-ii-moskva" className="a-anim-footer hover:text-white">
                   Разработка сайтов под ИИ
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-ecommerce" className="hover:text-white">
+                <Link href="/ii-internet-magaziny-moskva" className="a-anim-footer hover:text-white">
                   Интернет-магазины
                 </Link>
               </li>
               <li>
-                <Link href="/services/ai-promotion" className="hover:text-white">
+                <Link href="/seo-aio-yandex-alisa-moskva" className="a-anim-footer hover:text-white">
                   Продвижение и AIO
                 </Link>
                   </li>
                 <li>
-                 <Link href="/ai-web-design-moskva" className="hover:text-white">
+                 <Link href="/ai-web-design-moskva" className="a-anim-footer hover:text-white">
                  AI-дизайн сайтов
                  </Link>
               </li>
@@ -61,34 +61,29 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-white/70">
               <li>
-                <Link href="/about" className="hover:text-white">
+                <Link href="/about" className="a-anim-footer hover:text-white">
                   О компании
                 </Link>
               </li>
               <li>
-                <Link href="/contacts" className="hover:text-white">
+                <Link href="/contacts" className="a-anim-footer a-anim-footer hover:text-white">
                   Контакты
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:text-white">
-                  FAQ
                 </Link>
               </li>
             </ul>
                         <div className="mt-6">
               <Link
                 href="/privacy-policy"
-                className="text-xs text-white/50 hover:text-white"
+                className="text-xs text-white/50 a-anim-footer hover:text-white"
               >
                 Политика конфиденциальности
               </Link>
               <br />
               <Link
                 href="/personal-data-consent"
-                className="text-xs text-white/50 hover:text-white"
+                className="text-xs text-white/50 a-anim-footer hover:text-white"
               >
-                Согласие на обработку персональных данных
+                Обработка персональных данных
               </Link>
             </div>
           </div>
@@ -119,11 +114,11 @@ export default function Footer() {
             <li>
               <a
                   href="tel:+74959876543"
-                  className="hover:text-white"
+                  className="a-anim-footer hover:text-white"
                 >Тел.: +7 (495) 987-65-43</a></li>
               <li> <a
                   href="mailto:hello@mirax.ru"
-                  className="hover:text-white"
+                  className="a-anim-footer hover:text-white"
                 >
                   hello@mirax.ru
                 </a>

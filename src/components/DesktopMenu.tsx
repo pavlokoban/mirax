@@ -7,6 +7,20 @@ interface Props {
   open: boolean;
   onClose: () => void;
 }
+const MenuLink = ({
+  href,
+  children,
+  onClose,
+}: {
+  href: string
+  children: React.ReactNode
+  onClose: () => void
+}) => (
+  <Link href={href} onClick={onClose}>
+    {children}
+  </Link>
+)
+
 
 export default function DesktopMenu({ open, onClose }: Props) {
   return (
@@ -43,10 +57,10 @@ export default function DesktopMenu({ open, onClose }: Props) {
   transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
 >
               <h2>Услуги</h2>
-              <Link href="/razrabotka">Разработка сайтов</Link>
-              <Link href="/shop">Разработка интернет-магазинов</Link>
-              <Link href="/promotion">Продвижение / SEO</Link>
-              <Link href="/aio">Продвижение в ИИ / AIO</Link>
+              <MenuLink href="/razrabotka-saitov-pod-ii-moskva" onClose={onClose}>Разработка сайтов</MenuLink>
+              <MenuLink href="/ii-internet-magaziny-moskva" onClose={onClose}>Разработка интернет-магазинов</MenuLink>
+              <MenuLink href="/seo-aio-yandex-alisa-moskva" onClose={onClose}>Продвижение</MenuLink>
+              <MenuLink href="/ai-web-design-moskva" onClose={onClose}>UI/UX дизайн с учетом ИИ</MenuLink>
              </motion.div>
 
            <motion.div
@@ -56,15 +70,31 @@ export default function DesktopMenu({ open, onClose }: Props) {
   transition={{ delay: 0.25, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
 >
               <h2>Компания</h2>
-              <Link href="/about">Компания</Link>
-              <Link href="/contacts">Контакты</Link>
+              <MenuLink href="/about" onClose={onClose}>Компания</MenuLink>
+              <MenuLink href="/contacts" onClose={onClose}>Контакты</MenuLink>
          </motion.div>
 </div>
           {/* FOOTER */}
           <div className="menu-footer">
-            <Link href="/contacts#form" className="header-cta">
-              Обсудить проект
-            </Link>
+              <Link
+            href="/contacts#cta"
+           className="
+relative overflow-hidden
+inline-flex items-center justify-center
+w-[180px] h-[180px]
+rounded-full
+bg-gradient-to-r from-[#8a4bff] to-[#5a2eff]
+text-white
+font-bold uppercase text-sm
+shadow-[0_0_70px_rgba(106,58,255,0.5)]
+hover:shadow-[0_0_100px_rgba(138,75,255,0.6)]
+transition-transform duration-300
+hover:scale-105
+main-cta-center
+"
+>
+            Обсудить<br />проект →
+          </Link>
 
             <div className="menu-contacts">
               <p>Москва, Пресненская набережная, 12</p>

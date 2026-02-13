@@ -24,10 +24,10 @@ export default function HeaderRow({ hidden }: Props) {
 
         {/* DESKTOP MENU */}
         <nav className="header-menu">
-          <Link href="/razrabotka" className="a-anim">
+          <Link href="/razrabotka-saitov-pod-ii-moskva" className="a-anim">
             <span>Разработка</span>
           </Link>
-          <Link href="/promotion" className="a-anim">
+          <Link href="/seo-aio-yandex-alisa-moskva" className="a-anim">
             <span>Продвижение</span>
           </Link>
           <Link href="/about" className="a-anim">

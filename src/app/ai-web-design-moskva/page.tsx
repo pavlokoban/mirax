@@ -112,6 +112,7 @@ export default function AiWebsiteDesignPage() {
           font-semibold uppercase text-sm
           shadow-[0_0_40px_rgba(0,255,150,0.35)]
           transition-transform hover:scale-105
+          main-cta-center
         "
       >
         Обсудить<br />дизайн →

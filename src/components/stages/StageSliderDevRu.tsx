@@ -20,7 +20,8 @@ const Arrow = ({ className, style, onClick }: any) => {
   return (
     <button
       className={className}
-      style={{ ...style, display: 'block', color: '#000', fontSize: '32px', right: '0'}}
+      style={{ ...style, display: 'block', color: '#000', fontSize: '32px', marginLeft: '12px', right: '12px'}}
+      // style={{ ...style, display: 'block', color: '#000', fontSize: '32px' }}
       onClick={onClick}
     >
       {className.includes('slick-prev') ? '❮' : '❯'}
@@ -44,24 +45,35 @@ const StageSliderDevRu = () => {
       <Slider {...settings}>
         {stages.map((stage, index) => (
           <div key={stage.number} className={styles.slide}>
-            <div className="inline-flex-desc">
-              <div className="desc-33-mob-100">
-                <div className={styles.stageNumber}>{stage.number}</div>
-              </div>
+<div className="flex flex-col lg:flex-row items-stretch">
 
-              <div className="desc-67-mob-100">
-                <div className={styles.stageContent}>
-                  <div className="inline-flex-desc">
-                    <div className={styles.stageTitle}>{stage.title}</div>
-                    <div className={styles.slideCounter}>{index + 1}/{stages.length}</div>
-                  </div>
-                  <div className={styles.resultText}>
-                    <p className={styles.resultTextR}>Результат:</p>
-                    <p className={styles.resultTextP}>{stage.result}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+  {/* ЛЕВАЯ ЧАСТЬ — 1/3 */}
+  <div className="w-full lg:w-1/3 flex justify-center">
+    <div className={styles.stageNumber}>
+      {stage.number}
+    </div>
+  </div>
+
+  {/* ПРАВАЯ ЧАСТЬ — 2/3 */}
+  <div className="w-full lg:w-2/3">
+    <div className={styles.stageContent}>
+      <div className="flex items-start">
+        <div className={styles.stageTitle}>{stage.title}</div>
+        <div className={styles.slideCounter}>
+          {index + 1}/{stages.length}
+        </div>
+      </div>
+
+      <div className={styles.resultText}>
+        <p className={styles.resultTextR}>Результат:</p>
+        <p className={styles.resultTextP}>{stage.result}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
           </div>
         ))}
       </Slider>

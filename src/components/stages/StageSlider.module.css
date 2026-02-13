@@ -20,29 +20,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
   }
   
-  .slickPrev {
-    left: 0;
-  }
-  
-  .slickNext  {
-    right: 0;
-  }
+.slickPrev {
+  left: 24px !important;
+}
+
+.slickNext {
+  right: 24px !important;
+}
+
+
   
   .slide {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     height: 300px;
+    display: flex;
+  align-items: stretch; /* вместо center */
+  height: 300px;
   }
   
   .stageNumber {
-    font-family: 'Unbounded', system-ui, sans-serif;
+    font-family: 'Geologica', 'Unbounded', system-ui, sans-serif;
     line-height: 1;
     flex: 0 0 33%;
     font-size: 444px;
-    color: #ffffff; /* White text color */
-    -webkit-text-stroke: 1px #000000; /* Black outline with 2px thickness */
+    color: #ffffff;
+    -webkit-text-stroke: 1px #000000; 
     text-align: center;
     display: flex;
     justify-content: center;
@@ -62,6 +68,7 @@
     font-size: 61px;
     margin-top: 10px;
     font-weight: 500;
+    line-height: 1.4;
     /*font-family: 'Unbounded', system-ui, sans-serif;*/
   }
   
@@ -73,8 +80,9 @@
   }
   
   .resultTextP {
-    background-color: var(--color-main-1-deep);
-    color: #000000;
+    background-color: #723fff;
+       background-color:#1a0b2e;
+    color: #ffffff;
     font-weight: 400;
     font-size: 20px;
     padding: 6px 12px;
@@ -131,4 +139,38 @@
             width: 100%;
             margin-top: 12px;
         }
+}
+/* @media (max-width: 992px) {
+
+  .slickArrow {
+    top: auto;
+    bottom: 20px;
+    transform: none;
+  }
+
+  .slickPrev {
+    left: 30% !important
+  }
+
+  .slickNext {
+    right: 30% !important;
+  }
+
+} */
+@media (max-width: 992px) {
+
+  .slickArrow {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+  }
+
+  .slickPrev {
+    left: 8px;
+  }
+
+  .slickNext {
+    right: 8px;
+  }
+
 }

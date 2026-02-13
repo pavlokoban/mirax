@@ -164,7 +164,7 @@ const ContactFormRus: React.FC = () => {
 
         <h3 className='text-2xl md:text-2xl font-bold'>Бюджет</h3>
         <div className={styles.options}>
-          {['меньше $1k', '$1k-3k', '$3k-7k', '$7k-10k', '$10k+'].map((budget) => (
+          {['меньше 70тыс.руб.', '70-150тыс.руб.', '150-250тыс.руб.', '250-500тыс.руб.', '500тыс.руб.+'].map((budget) => (
             <label key={budget} className={`${styles.option} ${formData.budget === budget ? styles.selected : ''}`}>
               <input
                 type="radio"
@@ -250,14 +250,42 @@ const ContactFormRus: React.FC = () => {
           <span className={styles.buttonWaves}></span>
         </button> */}
 
-    <CircularText
+    {/* <CircularText
       text="ОСТАВИТЬ*ЗАЯВКУ*НА*ОЦЕНКУ*"
       spinDuration={8}
       onHover="slowDown"
       disabled={isLoading}
       isLoading={isLoading}
+    /> */}
 
-    />
+<button type="submit" 
+// className="
+//   relative overflow-hidden
+//   inline-flex items-center justify-center
+//   w-[180px] h-[180px]
+//   rounded-full
+//   bg-green-400 text-black
+//   font-bold uppercase text-sm
+//   shadow-[0_0_52px_rgba(0,255,150,0.35)]
+//   transition-transform hover:scale-105
+//   main-cta-center" 
+className="
+relative overflow-hidden
+inline-flex items-center justify-center
+w-[180px] h-[180px]
+rounded-full
+bg-gradient-to-r from-[#8a4bff] to-[#5a2eff]
+text-white
+font-bold uppercase text-sm
+shadow-[0_0_70px_rgba(106,58,255,0.5)]
+hover:shadow-[0_0_100px_rgba(138,75,255,0.6)]
+transition-transform duration-300
+hover:scale-105
+main-cta-center"
+  style={{display: 'block', margin: 'auto', cursor: 'pointer'}} disabled={isLoading}>
+          <span className={styles.buttonText}>{isLoading ? 'Отправка...' : 'Отправить'}</span>
+          <span className={styles.buttonWaves}></span>
+        </button>
 
         <p className={styles.privacyText}>
           Отправляя этот запрос, Вы соглашаетесь, что Ваши данные будут <Link className={'a-anim-email'} href="/personal-data-consent">храниться и обрабатываться сайтом</Link>.

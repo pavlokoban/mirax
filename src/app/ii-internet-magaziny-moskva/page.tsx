@@ -2,8 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ContactFormRus from "@/components/contact-form/ContactFormRus";
 import CountUp from 'react-countup'; 
+import PriceCounter from "@/components/PriceCounter";
 import Script from 'next/script'
+import WhatIsAIOptimized from "@/components/sections/WhatIsAIOptimized";
+import Divider from "@/components/sections/Divider";
 import StageSliderDevRu from '@/components/stages/StageSliderDevRu';
+import DifferenceSection from '@/components/TypeAnimation';
 
 
 export const metadata: Metadata = {
@@ -64,93 +68,106 @@ export default function AiWebsiteDevelopmentPage() {
     <main className="relative">
 
 {/* HERO */}
-<section id="hero" className="py-32">
-  <div className="max-w-7xl mx-auto px-6">
+   <section id="hero" className="py-32">
+      <div className="max-w-7xl mx-auto px-6">
 
-    {/* Title */}
-    <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">
+        {/* Title */}
+        <h1 className="text-3xl md:text-6xl font-bold text-center mb-8 mt-20">
       ИИ-оптимизированные интернет-магазины в Москве
     </h1>
 
     {/* Description */}
-    <p className="max-w-4xl mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-20">
+     <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
       Разрабатываем интернет-магазины, которые понимают и рекомендуют
       Яндекс Алиса, ChatGPT и другие ИИ-системы.
       Мы проектируем структуру каталога, карточки товаров и контент
       так, чтобы ИИ мог использовать ваш магазин как источник ответов,
       а не просто как витрину товаров.
-      <br />
-      <span className="opacity-60">
-        WooCommerce, OpenCart, 1C-Битрикс, Next.js, Laravel, MySQL.
-      </span>
-    </p>
+    <br />
+           </p>
+            <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
+               <span className="px-4 py-2 rounded-full border border-black/15 text-sm">OpenCart</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">WooCommerce</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Next.js</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">MySQL</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">1C-Битрикс</span>
+        </p>
 
-    {/* Price & Timing */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20">
+         {/* Price & Timing */}
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20">
+ 
+          {/* Price */}
+          <div className="border-t border-black/10 pt-6">
+            <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
+               Стоимость
+            </div>
+<div className="text-2xl md:text-3xl font-semibold">
+    <PriceCounter from={120000} to={350000} />
+</div>
+          </div>
+         {/* Time */}
+         <div className="border-t border-black/10 pt-6">
+            <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
+              Сроки
+            </div>
+            <div className="text-2xl md:text-3xl font-semibold">
+              от 6-10 недель
+             </div>
+          </div>
 
-      {/* Price */}
-      <div className="border-t border-black/10 pt-6">
-        <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
-          Стоимость
         </div>
-        <div className="text-2xl md:text-3xl font-semibold">
-          от 350 000 ₽
+
+        {/* CTA */}
+        <div className="flex justify-center">
+     <Link
+            href="#cta"
+         className="
+relative overflow-hidden
+inline-flex items-center justify-center
+w-[180px] h-[180px]
+rounded-full
+bg-gradient-to-r from-[#8a4bff] to-[#5a2eff]
+text-white
+font-bold uppercase text-sm
+shadow-[0_0_70px_rgba(106,58,255,0.5)]
+hover:shadow-[0_0_100px_rgba(138,75,255,0.6)]
+transition-transform duration-300
+hover:scale-105
+main-cta-center
+"
+>
+            Обсудить<br />проект →
+          </Link>
         </div>
       </div>
+      </section>
 
-      {/* Time */}
-      <div className="border-t border-black/10 pt-6">
-        <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
-          Сроки
-        </div>
-        <div className="text-2xl md:text-3xl font-semibold">
-          от 6–10 недель
-        </div>
-      </div>
+   {/* TECHNOLOGY AND PRICE */}
+<section
+      id="technology"
+      className="text-white py-32 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]"
+    >
+      <div className="max-w-7xl mx-auto px-6">
 
-    </div>
+        {/* Heading */}
+        <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl text-white tracking-tight">
+          Технологии и цены
+        </h2>
 
-    {/* CTA */}
-    <div className="flex justify-center">
-      <Link
-        href="/contact"
-        className="
-          inline-flex items-center justify-center
-          w-[180px] h-[180px]
-          rounded-full
-          bg-green-400 text-black
-          font-semibold uppercase text-sm
-          shadow-[0_0_40px_rgba(0,255,150,0.35)]
-          transition-transform hover:scale-105
-        "
-      >
-        Обсудить<br />проект →
-      </Link>
-    </div>
-
-  </div>
-</section>
-
-{/* TECHNOLOGY AND PRICE */}
-<section id="technology" className="py-32 bg-black text-white">
-  <div className="max-w-7xl mx-auto px-6">
-
-    {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-bold mb-6">
-      Технологии и стоимость разработки
-    </h2>
-
-    <p className="max-w-3xl text-lg opacity-80 mb-20">
+        <p className="max-w-3xl text-lg opacity-80 mb-20">
       Мы проектируем интернет-магазины с учётом логики ИИ:
       структуры каталога, карточек товаров, фильтрации и контента.
       Ниже — ориентиры по форматам, срокам и стоимости.
-    </p>
+     </p>
 
-    {/* Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
       {/* Card 1 */}
-      <div className="border border-white/15 rounded-2xl p-6 flex flex-col justify-between">
+      <div  className="
+                flex flex-col justify-between
+                border border-white/15
+                rounded-2xl p-6
+                backdrop-blur-sm
+                activeelement
+              "
+            >
         <div>
           <h3 className="text-xl font-semibold mb-2">
             Каталог + витрина
@@ -186,7 +203,12 @@ export default function AiWebsiteDevelopmentPage() {
       </div>
 
       {/* Card 2 */}
-      <div className="border border-white/15 rounded-2xl p-6 flex flex-col justify-between">
+      <div className=" flex flex-col justify-between
+                border border-white/15
+                rounded-2xl p-6
+                backdrop-blur-sm
+                activeelement
+              ">
         <div>
           <h3 className="text-xl font-semibold mb-2">
             Интернет-магазин
@@ -222,7 +244,12 @@ export default function AiWebsiteDevelopmentPage() {
       </div>
 
       {/* Card 3 */}
-      <div className="border border-white/15 rounded-2xl p-6 flex flex-col justify-between">
+      <div className=" flex flex-col justify-between
+                border border-white/15
+                rounded-2xl p-6
+                backdrop-blur-sm
+                activeelement
+              ">
         <div>
           <h3 className="text-xl font-semibold mb-2">
             Магазин с интеграциями
@@ -258,7 +285,12 @@ export default function AiWebsiteDevelopmentPage() {
       </div>
 
       {/* Card 4 */}
-      <div className="border border-white/15 rounded-2xl p-6 flex flex-col justify-between">
+      <div className=" flex flex-col justify-between
+                border border-white/15
+                rounded-2xl p-6
+                backdrop-blur-sm
+                activeelement
+              ">
         <div>
           <h3 className="text-xl font-semibold mb-2">
             Масштабируемый eCommerce

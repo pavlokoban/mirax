@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ContactFormRus from "@/components/contact-form/ContactFormRus";
-import CountUp from 'react-countup'; 
+import PriceCounter from "@/components/PriceCounter";
 import Script from 'next/script'
 import StageSliderDevRu from '@/components/stages/StageSliderDevRu';
+import WhatIsAIOptimized from "@/components/sections/WhatIsAIOptimized";
+import Divider from "@/components/sections/Divider";
+import DifferenceSection from '@/components/TypeAnimation';
+
 
 // ===== SEO META =====
 export const metadata: Metadata = {
@@ -128,18 +132,18 @@ export default function AiWebsiteDevelopmentPage() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Title */}
-        <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">
+        <h1 className="text-3xl md:text-6xl font-bold text-center mb-8 mt-20">
           Разработка сайтов, оптимизированных под ИИ в Москве
         </h1>
 
         {/* Description */}
-        <p className="max-w-4xl mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-20">
+        <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
           Создаём сайты для людей, которые понимают и рекомендуют Яндекс Алиса, ChatGPT и другие ИИ-системы. Мы проектируем сайты с учётом логики ИИ-поиска:
 структура, экспертный контент, микроразметка и доверие — ещё на этапе разработки, а не после запуска.
           <br />
-          <span className="opacity-60">
-            WordPress, OpenCart, 1C-Битрикс, React, Next.js, Laravel.
-          </span>
+           </p>
+            <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
+          <span className="px-4 py-2 rounded-full border border-black/15 text-sm">WordPress</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">React</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Next.js</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">OpenCart</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">1C-Битрикс</span>
         </p>
 
         {/* Price & Timing */}
@@ -150,9 +154,9 @@ export default function AiWebsiteDevelopmentPage() {
             <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
               Стоимость
             </div>
-            <div className="text-2xl md:text-3xl font-semibold">
-              от 180 000 ₽
-            </div>
+<div className="text-2xl md:text-3xl font-semibold">
+   <PriceCounter from={120000} to={180000} />
+</div>
           </div>
 
           {/* Time */}
@@ -169,18 +173,39 @@ export default function AiWebsiteDevelopmentPage() {
 
         {/* CTA */}
         <div className="flex justify-center">
-          <Link
-            href="/contact"
-            className="
-              inline-flex items-center justify-center
-              w-[180px] h-[180px]
-              rounded-full
-              bg-green-400 text-black
-              font-semibold uppercase text-sm
-              shadow-[0_0_40px_rgba(0,255,150,0.35)]
-              transition-transform hover:scale-105
-            "
-          >
+          {/* <Link
+            href="#cta"
+           className="
+  relative overflow-hidden
+  inline-flex items-center justify-center
+  w-[180px] h-[180px]
+  rounded-full
+  bg-green-400 text-black
+  font-bold uppercase text-sm
+  shadow-[0_0_52px_rgba(0,255,150,0.35)]
+  transition-transform hover:scale-105
+  main-cta-center
+"
+>
+            Обсудить<br />проект →
+          </Link> */}
+                    <Link
+            href="#cta"
+         className="
+relative overflow-hidden
+inline-flex items-center justify-center
+w-[180px] h-[180px]
+rounded-full
+bg-gradient-to-r from-[#8a4bff] to-[#5a2eff]
+text-white
+font-bold uppercase text-sm
+shadow-[0_0_70px_rgba(106,58,255,0.5)]
+hover:shadow-[0_0_100px_rgba(138,75,255,0.6)]
+transition-transform duration-300
+hover:scale-105
+main-cta-center
+"
+>
             Обсудить<br />проект →
           </Link>
         </div>
@@ -190,12 +215,12 @@ export default function AiWebsiteDevelopmentPage() {
    {/* TECHNOLOGY AND PRICE */}
 <section
       id="technology"
-      className="bg-black text-white py-32"
+      className="text-white py-32 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]"
     >
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl text-white tracking-tight">
           Технологии и цены
         </h2>
 
@@ -216,27 +241,34 @@ export default function AiWebsiteDevelopmentPage() {
                 border border-white/15
                 rounded-2xl p-6
                 backdrop-blur-sm
+                activeelement
               "
             >
               {/* Top */}
               <div>
-                <h3 className="text-xl font-semibold mb-2">
+                <div className='block min-h-18'>
+                <h3 className="text-2xl font-semibold mb-3">
                   {plan.title}
                 </h3>
+                  </div>
 
                 <div className="text-sm opacity-60 mb-4">
                   Сроки: {plan.time}
                 </div>
 
-                <p className="text-sm opacity-80 mb-6">
+                <p className="text-xs opacity-80 mb-6">
                   {plan.description}
                 </p>
 
-                <div className="text-sm opacity-70 mb-6">
-                  <span className="block mb-2 opacity-50">
-                    Стек:
-                  </span>
-                  {plan.stack.join(', ')}
+                <div className="text-sm opacity-70 mb-6 pt-6 border-t border-white/10">
+                 
+                <div className="flex flex-wrap gap-2">
+    {plan.stack.map((item, index) => (
+      <span key={index} className="stack-item">
+        {item}
+      </span>
+    ))}
+  </div>
                 </div>
               </div>
 
@@ -263,11 +295,99 @@ export default function AiWebsiteDevelopmentPage() {
 
    {/* Portfolio */}
       <section id="cases" className="py-32">
-        {/* TODO: Кейсы, клиенты и отзывы */}
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
+            Кейсы, клиенты и отзывы
+          </h2>
+
+          <p className="max-w-3xl text-lg opacity-80 mb-14">
+            Реальные проекты, с которыми мы усилили видимость бизнеса в поиске,
+            улучшили структуру сайта и увеличили поток заявок.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <article className="border border-black/10 rounded-2xl p-6">
+              <div className="text-sm uppercase tracking-wide opacity-60 mb-3">
+                Кейс 01
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Юридическая фирма</h3>
+              <p className="text-sm opacity-80 mb-4">
+                Пересобрали структуру услуг, добавили экспертные страницы и
+                усилили блоки ответов под ИИ-запросы.
+              </p>
+              <div className="text-sm font-medium">+46% заявок за 3 месяца</div>
+            </article>
+
+            <article className="border border-black/10 rounded-2xl p-6">
+              <div className="text-sm uppercase tracking-wide opacity-60 mb-3">
+                Кейс 02
+              </div>
+              <h3 className="text-xl font-semibold mb-3">B2B-интегратор</h3>
+              <p className="text-sm opacity-80 mb-4">
+                Запустили новый корпоративный сайт с контент-хабом и логикой
+                страниц для органического роста.
+              </p>
+              <div className="text-sm font-medium">+71% органического трафика</div>
+            </article>
+
+            <article className="border border-black/10 rounded-2xl p-6">
+              <div className="text-sm uppercase tracking-wide opacity-60 mb-3">
+                Кейс 03
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Медицинский центр</h3>
+              <p className="text-sm opacity-80 mb-4">
+                Подготовили сервисные страницы и FAQ-блоки, что повысило доверие
+                пользователей и конверсию в запись.
+              </p>
+              <div className="text-sm font-medium">x2.1 рост конверсии</div>
+            </article>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-16">
+            <div>
+              <h3 className="text-2xl font-semibold mb-5">Клиенты</h3>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  'FinTech Lab',
+                  'MedPoint',
+                  'SkillCraft',
+                  'Urban Estate',
+                  'Legal Group Msk',
+                  'ProDent',
+                  'TechnoSupply',
+                  'Beauty Clinic One',
+                ].map((client) => (
+                  <span
+                    key={client}
+                    className="px-4 py-2 rounded-full border border-black/15 text-sm"
+                  >
+                    {client}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-5">Отзывы</h3>
+              <div className="space-y-4">
+                <blockquote className="border border-black/10 rounded-2xl p-5 text-sm opacity-90">
+                  «Команда сразу заложила архитектуру под SEO и ИИ. После
+                  запуска получили больше целевых обращений из органики.»
+                </blockquote>
+                <blockquote className="border border-black/10 rounded-2xl p-5 text-sm opacity-90">
+                  «Понравился системный подход: не только дизайн, но и логика
+                  контента, которая реально работает на продажи.»
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
+
+
       {/* FOR WHO */}
-      <section id="for-who" className="py-32">
+      {/* <section id="for-who" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-3xl md:text-4xl font-bold mb-12">
@@ -319,123 +439,40 @@ export default function AiWebsiteDevelopmentPage() {
         </div>
 
       </div>
-    </section>
+    </section> */}
 
       {/* WHAT IS AI WEBSITE */}
-    <section id="what-is-ai-website" className="py-32 bg-neutral-50">
+        <WhatIsAIOptimized />
+
+
+ {/* Stages */}
+ <section id="stages" className="py-32">
       <div className="max-w-7xl mx-auto px-6">
-
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
-          Что значит сайт, оптимизированный под ИИ
+    <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
+          Этапы разработки сайта
         </h2>
-
-        <div className="max-w-4xl text-lg opacity-80 mb-12 leading-relaxed">
-          <p className="mb-4">
-            Сайт, оптимизированный под ИИ — это не шаблон и не набор плагинов.
-            Это подход к проектированию сайта, при котором искусственный интеллект
-            может корректно понять:
+       
+   <p className="max-w-3xl text-lg opacity-80 mb-14">
+             Разрабатываем сайты и проектируем веб-интерфейсы для людей, имеем опыт и экспертизу в веб-дизайне, верстке и программировании на PHP, JS.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
 
-          <div>
-            <h3 className="font-semibold mb-2">
-              Экспертность и тематику
-            </h3>
-            <p className="text-sm opacity-80">
-              ИИ определяет, в какой области вы работаете и можно ли
-              использовать ваш сайт как источник информации.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-2">
-              Ответы на реальные вопросы
-            </h3>
-            <p className="text-sm opacity-80">
-              Контент строится не вокруг «продажи», а вокруг
-              реальных запросов пользователей.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-2">
-              Структуру и сущности
-            </h3>
-            <p className="text-sm opacity-80">
-              Микроразметка, логика страниц и связи между разделами
-              помогают ИИ извлекать факты.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-2">
-              Доверие
-            </h3>
-            <p className="text-sm opacity-80">
-              Опыт, авторство, прозрачность и техническое качество —
-              ключевые сигналы для ИИ-систем.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+            <StageSliderDevRu />
+                </section>
 
       {/* DIFFERENCE */}
-    <section id="difference" className="py-32">
-      <div className="max-w-7xl mx-auto px-6">
+ {/* <section id="difference" className="w-full py-28 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]"> */}
+  
+<DifferenceSection />
 
-        <h2 className="text-3xl md:text-4xl font-bold mb-16">
-          Чем разработка сайтов под ИИ отличается от обычной
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl">
-
-          {/* Обычная разработка */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">
-              Обычная разработка
-            </h3>
-            <ul className="space-y-4 text-sm opacity-80">
-              <li>Фокус на визуале и функционале</li>
-              <li>SEO и структура — после запуска</li>
-              <li>Продвижение через рекламу</li>
-              <li>Сайт как витрина</li>
-            </ul>
-          </div>
-
-          {/* Под ИИ */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">
-              Разработка под ИИ
-            </h3>
-            <ul className="space-y-4 text-sm opacity-80">
-              <li>Фокус на логике, структуре и смыслах</li>
-              <li>ИИ-оптимизация на этапе проектирования</li>
-              <li>Рост через рекомендации ИИ и органику</li>
-              <li>Сайт как экспертный источник</li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-{/* PROCESS */}
-  <section id="process" className="py-32">
-    <StageSliderDevRu />     
-  </section>
 
     
 
 {/* FAQ */}
 <section id="faq" className="py-32">
   <div className="max-w-5xl mx-auto px-6">
-    <h2 className="text-4xl md:text-5xl font-bold mb-16">
+    <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
       Часто задаваемые вопросы
     </h2>
 
@@ -481,7 +518,7 @@ export default function AiWebsiteDevelopmentPage() {
   />
 </section>
 
-
+      <Divider />
       {/* CTA */}
       <section id="cta" className="py-32">
         <ContactFormRus />

@@ -247,9 +247,10 @@ body {
 
 /* slight glow for dark text on light bg */
 .heading-reveal.glass-accent {
-  text-shadow:
+  /* text-shadow:
     0 1px 0 rgba(255,255,255,0.4),
-    0 8px 30px rgba(0,0,0,0.06);
+    0 8px 30px rgba(0,0,0,0.06); */
+    text-shadow: none;
 }
 h1, h2, h3, h4 {
   will-change: transform, filter, opacity;
@@ -364,3 +365,86 @@ h1, h2, h3, h4 {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+.a-anim-footer {
+  position: relative;
+  overflow: hidden;
+}
+.a-anim-footer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: rgb(255, 255, 255);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.a-anim-footer:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.main-cta-center {
+  position: relative;
+  overflow: hidden;
+}
+
+.main-cta-center::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  border-radius: 50%;
+  /* background: radial-gradient(circle, #3ad19626, transparent); */
+    /* background: radial-gradient(circle, #913bed26, transparent); */
+    background: radial-gradient(circle, #913bed26, #0000);
+  transition: transform .5s ease, opacity .5s ease;
+  pointer-events: none; /* ВАЖНО */
+}
+
+.main-cta-center:hover {
+  color: #fff;
+  background: black;
+}
+
+.main-cta-center:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.badges-stack {border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 3px 15px;
+    height: fit-content;
+    margin-right: 6px;
+font-size: 12px;
+    font-weight: 300;
+    background: #f2f2f2ab;
+  }
+  .stack-item {
+        color: #3f3e3e;
+    background-color: #ccd6e52b;
+    border-radius: 12px;
+    height: fit-content;
+    margin-right: 6px;
+    padding: 3px 15px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #aaa !important;
+    background-color: #1c1c1c !important;
+  }
+  .activeelement {
+border: .5px solid #6060607d !important;
+  }
+    .activeelement:hover {
+    cursor: pointer !important;
+    border: .5px solid #8400ff !important;
+     background: radial-gradient(circle, #913bed26, #0000) !important;
+  transition: transform 1s ease, opacity 1s ease !important;
+
+  }
