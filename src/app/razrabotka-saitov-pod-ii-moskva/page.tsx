@@ -471,8 +471,8 @@ main-cta-center
 
 {/* FAQ */}
 <section id="faq" className="py-32">
-  <div className="max-w-5xl mx-auto px-6">
-    <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-5xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
       Часто задаваемые вопросы
     </h2>
 

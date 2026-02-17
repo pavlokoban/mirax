@@ -7,7 +7,7 @@ import Script from 'next/script'
 import WhatIsAIOptimized from "@/components/sections/WhatIsAIOptimized";
 import Divider from "@/components/sections/Divider";
 import StageSliderDevRu from '@/components/stages/StageSliderDevRu';
-import DifferenceSection from '@/components/TypeAnimation';
+import DifferenceSectionEcom from '@/components/TypeAnimationEcom';
 
 
 export const metadata: Metadata = {
@@ -19,6 +19,41 @@ export const metadata: Metadata = {
     canonical: '/ii-internet-magaziny-moskva',
   },
 }
+
+const plans = [
+  {
+    title: ' Каталог + витрина',
+    time: 'от 4–6 недель',
+    description:
+      'Небольшой интернет-магазин или каталог с ИИ-логикой категорий, оптимизированный под поиск и рекомендации.',
+    stack: ['Figma', 'WordPress', 'WooCommerce', 'MySQL'],
+    price: 'от 100 000 ₽',
+  },
+  {
+    title: 'Интернет-магазин',
+    time: 'от 6–8 недель',
+    description:
+      'Полноценный магазин с ИИ-оптимизированными карточками товаров, фильтрацией и базовой аналитикой.',
+    stack: ['Figma', 'WordPress', 'PHP', 'MySQL'],
+    price: 'от 200 000 ₽',
+  },
+  {
+    title: 'Магазин с интеграциями',
+    time: 'от 8–12 недель',
+    description:
+      'Интернет-магазин с CRM, оплатами, доставкой, 1С и архитектурой под рост ассортимента.',
+    stack: ['Figma', 'WordPress', 'Next.js', 'MySQL'],
+    price: 'от 300 000 ₽',
+  },
+  {
+    title: 'Масштабируемый eCommerce',
+    time: 'от 12–16 недель',
+    description:
+      'Высоконагруженный магазин или маркетплейс с ИИ-логикой, кастомной архитектурой и масштабированием.',
+    stack: ['Figma', 'API', 'Next.js', 'Node.js', 'PostgreSQL'],
+    price: 'от 700 000 ₽',
+  },
+]
 
 const faqItems = [
   {
@@ -156,11 +191,13 @@ main-cta-center
       Ниже — ориентиры по форматам, срокам и стоимости.
      </p>
 
-        {/* Cards */}
+              {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-      {/* Card 1 */}
-      <div  className="
+          {plans.map((plan) => (
+            <div
+              key={plan.title}
+              className="
                 flex flex-col justify-between
                 border border-white/15
                 rounded-2xl p-6
@@ -168,316 +205,177 @@ main-cta-center
                 activeelement
               "
             >
-        <div>
-          <h3 className="text-xl font-semibold mb-2">
-            Каталог + витрина
-          </h3>
+              {/* Top */}
+              <div>
+                <div className='block min-h-18'>
+                <h3 className="text-2xl font-semibold mb-3">
+                  {plan.title}
+                </h3>
+                  </div>
 
-          <div className="text-sm opacity-60 mb-4">
-            Сроки: от 4–6 недель
-          </div>
+                <div className="text-sm opacity-60 mb-4">
+                  Сроки: {plan.time}
+                </div>
 
-          <p className="text-sm opacity-80 mb-6">
-            Небольшой интернет-магазин или каталог с ИИ-логикой категорий,
-            оптимизированный под поиск и рекомендации.
-          </p>
+                <p className="text-xs opacity-80 mb-6">
+                  {plan.description}
+                </p>
 
-          <div className="text-sm opacity-70 mb-6">
-            <span className="block mb-2 opacity-50">Стек:</span>
-            Figma, WordPress, WooCommerce, MySQL
-          </div>
-        </div>
-
-        <div className="pt-6 border-t border-white/10">
-          <div className="text-lg font-semibold mb-4">
-            от 350 000 ₽
-          </div>
-
-          <a
-            href="#cta"
-            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
-          >
-            Обсудить проект →
-          </a>
-        </div>
-      </div>
-
-      {/* Card 2 */}
-      <div className=" flex flex-col justify-between
-                border border-white/15
-                rounded-2xl p-6
-                backdrop-blur-sm
-                activeelement
-              ">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">
-            Интернет-магазин
-          </h3>
-
-          <div className="text-sm opacity-60 mb-4">
-            Сроки: от 6–8 недель
-          </div>
-
-          <p className="text-sm opacity-80 mb-6">
-            Полноценный магазин с ИИ-оптимизированными карточками товаров,
-            фильтрацией и базовой аналитикой.
-          </p>
-
-          <div className="text-sm opacity-70 mb-6">
-            <span className="block mb-2 opacity-50">Стек:</span>
-            Figma, WooCommerce, OpenCart, MySQL
-          </div>
-        </div>
-
-        <div className="pt-6 border-t border-white/10">
-          <div className="text-lg font-semibold mb-4">
-            от 450 000 ₽
-          </div>
-
-          <a
-            href="#cta"
-            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
-          >
-            Обсудить проект →
-          </a>
-        </div>
-      </div>
-
-      {/* Card 3 */}
-      <div className=" flex flex-col justify-between
-                border border-white/15
-                rounded-2xl p-6
-                backdrop-blur-sm
-                activeelement
-              ">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">
-            Магазин с интеграциями
-          </h3>
-
-          <div className="text-sm opacity-60 mb-4">
-            Сроки: от 8–12 недель
-          </div>
-
-          <p className="text-sm opacity-80 mb-6">
-            Интернет-магазин с CRM, оплатами, доставкой, 1С и
-            архитектурой под рост ассортимента.
-          </p>
-
-          <div className="text-sm opacity-70 mb-6">
-            <span className="block mb-2 opacity-50">Стек:</span>
-            Figma, 1C-Битрикс, PHP, MySQL
-          </div>
-        </div>
-
-        <div className="pt-6 border-t border-white/10">
-          <div className="text-lg font-semibold mb-4">
-            от 650 000 ₽
-          </div>
-
-          <a
-            href="#cta"
-            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
-          >
-            Обсудить проект →
-          </a>
-        </div>
-      </div>
-
-      {/* Card 4 */}
-      <div className=" flex flex-col justify-between
-                border border-white/15
-                rounded-2xl p-6
-                backdrop-blur-sm
-                activeelement
-              ">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">
-            Масштабируемый eCommerce
-          </h3>
-
-          <div className="text-sm opacity-60 mb-4">
-            Сроки: от 12–16 недель
-          </div>
-
-          <p className="text-sm opacity-80 mb-6">
-            Высоконагруженный магазин или маркетплейс с ИИ-логикой,
-            кастомной архитектурой и масштабированием.
-          </p>
-
-          <div className="text-sm opacity-70 mb-6">
-            <span className="block mb-2 opacity-50">Стек:</span>
-            Figma, Next.js, Node.js, PostgreSQL
-          </div>
-        </div>
-
-        <div className="pt-6 border-t border-white/10">
-          <div className="text-lg font-semibold mb-4">
-            от 1 000 000 ₽
-          </div>
-
-          <a
-            href="#cta"
-            className="text-sm underline underline-offset-4 opacity-80 hover:opacity-100"
-          >
-            Обсудить проект →
-          </a>
-        </div>
-      </div>
-
-    </div>
-
+                <div className="text-sm opacity-70 mb-6 pt-6 border-t border-white/10">
+                 
+                <div className="flex flex-wrap gap-2">
+    {plan.stack.map((item, index) => (
+      <span key={index} className="stack-item">
+        {item}
+      </span>
+    ))}
   </div>
-</section>
+                </div>
+              </div>
 
+              {/* Bottom */}
+              <div className="pt-6 border-t border-white/10">
+                <div className="text-lg font-semibold mb-4">
+                  {plan.price}
+                </div>
+
+                <Link
+                  href="#cta"
+                  className="inline-block text-sm font-medium underline underline-offset-4 opacity-80 hover:opacity-100"
+                >
+                  Обсудить проект →
+                </Link>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+   {/* Portfolio */}
 
 {/* FOR WHO */}
-<section id="for-who" className="py-32">
-  <div className="max-w-7xl mx-auto px-6">
+  {/* Portfolio */}
+      <section id="cases" className="py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
+            Кейсы, клиенты и отзывы
+          </h2>
 
-    {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-bold mb-16">
-      Кому подходит разработка ИИ-оптимизированных интернет-магазинов
-    </h2>
+          <p className="max-w-3xl text-lg opacity-80 mb-14">
+            Реальные проекты, с которыми мы усилили видимость бизнеса в поиске,
+            улучшили структуру сайта и увеличили поток заявок.
+          </p>
 
-    {/* Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <article className="border border-black/10 rounded-2xl p-6">
+              <div className="text-sm uppercase tracking-wide opacity-60 mb-3">
+                Кейс 01
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Юридическая фирма</h3>
+              <p className="text-sm opacity-80 mb-4">
+                Пересобрали структуру услуг, добавили экспертные страницы и
+                усилили блоки ответов под ИИ-запросы.
+              </p>
+              <div className="text-sm font-medium">+46% заявок за 3 месяца</div>
+            </article>
 
-      {/* Item 1 */}
-      <div>
-        <h3 className="text-lg font-semibold mb-3">
-          Интернет-магазинам в Москве
-        </h3>
-        <p className="text-sm opacity-80">
-          Бизнесам, работающим в конкурентных нишах, где важно выделяться
-          не только рекламой, но и рекомендациями ИИ.
-        </p>
-      </div>
+            <article className="border border-black/10 rounded-2xl p-6">
+              <div className="text-sm uppercase tracking-wide opacity-60 mb-3">
+                Кейс 02
+              </div>
+              <h3 className="text-xl font-semibold mb-3">B2B-интегратор</h3>
+              <p className="text-sm opacity-80 mb-4">
+                Запустили новый корпоративный сайт с контент-хабом и логикой
+                страниц для органического роста.
+              </p>
+              <div className="text-sm font-medium">+71% органического трафика</div>
+            </article>
 
-      {/* Item 2 */}
-      <div>
-        <h3 className="text-lg font-semibold mb-3">
-          Брендам и производителям
-        </h3>
-        <p className="text-sm opacity-80">
-          Компаниям с собственным ассортиментом, которым важно,
-          чтобы ИИ корректно понимал продукты и их отличия.
-        </p>
-      </div>
+            <article className="border border-black/10 rounded-2xl p-6">
+              <div className="text-sm uppercase tracking-wide opacity-60 mb-3">
+                Кейс 03
+              </div>
+              <h3 className="text-xl font-semibold mb-3">Медицинский центр</h3>
+              <p className="text-sm opacity-80 mb-4">
+                Подготовили сервисные страницы и FAQ-блоки, что повысило доверие
+                пользователей и конверсию в запись.
+              </p>
+              <div className="text-sm font-medium">x2.1 рост конверсии</div>
+            </article>
+          </div>
 
-      {/* Item 3 */}
-      <div>
-        <h3 className="text-lg font-semibold mb-3">
-          D2C и B2C-проектам
-        </h3>
-        <p className="text-sm opacity-80">
-          Проектам, ориентированным на прямые продажи клиентам
-          и рост органического спроса.
-        </p>
-      </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-16">
+            <div>
+              <h3 className="text-2xl font-semibold mb-5">Клиенты</h3>
+              <div className="flex flex-wrap gap-3">
+                {[
+                  'FinTech Lab',
+                  'MedPoint',
+                  'SkillCraft',
+                  'Urban Estate',
+                  'Legal Group Msk',
+                  'ProDent',
+                  'TechnoSupply',
+                  'Beauty Clinic One',
+                ].map((client) => (
+                  <span
+                    key={client}
+                    className="px-4 py-2 rounded-full border border-black/15 text-sm"
+                  >
+                    {client}
+                  </span>
+                ))}
+              </div>
+            </div>
 
-      {/* Item 4 */}
-      <div>
-        <h3 className="text-lg font-semibold mb-3">
-          Тем, кто масштабируется
-        </h3>
-        <p className="text-sm opacity-80">
-          Интернет-магазинам с планами на рост каталога, трафика
-          и интеграции с CRM, 1С и маркетплейсами.
-        </p>
-      </div>
+            <div>
+              <h3 className="text-2xl font-semibold mb-5">Отзывы</h3>
+              <div className="space-y-4">
+                <blockquote className="border border-black/10 rounded-2xl p-5 text-sm opacity-90">
+                  «Команда сразу заложила архитектуру под SEO и ИИ. После
+                  запуска получили больше целевых обращений из органики.»
+                </blockquote>
+                <blockquote className="border border-black/10 rounded-2xl p-5 text-sm opacity-90">
+                  «Понравился системный подход: не только дизайн, но и логика
+                  контента, которая реально работает на продажи.»
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    </div>
-
-  </div>
-</section>
-
-{/* DIFFERENCE */}
-<section id="difference" className="py-32">
-  <div className="max-w-7xl mx-auto px-6">
-
-    {/* Heading */}
-    <h2 className="text-4xl md:text-5xl font-bold mb-20">
-      Чем разработка интернет-магазинов под ИИ отличается от обычной
-    </h2>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl">
-
-      {/* Обычная разработка */}
-      <div>
-        <h3 className="text-2xl font-semibold mb-8">
-          Обычный интернет-магазин
-        </h3>
-
-        <ul className="space-y-5 text-sm opacity-80">
-          <li>
-            Каталог строится по принципу «как удобно администратору»
-          </li>
-          <li>
-            Карточки товаров ориентированы только на покупку
-          </li>
-          <li>
-            Фильтры и характеристики не структурированы
-          </li>
-          <li>
-            SEO настраивается после запуска
-          </li>
-          <li>
-            Продажи зависят от рекламы и маркетплейсов
-          </li>
-          <li>
-            ИИ не понимает связи между товарами
-          </li>
-        </ul>
-      </div>
-
-      {/* Под ИИ */}
-      <div>
-        <h3 className="text-2xl font-semibold mb-8">
-          ИИ-оптимизированный интернет-магазин
-        </h3>
-
-        <ul className="space-y-5 text-sm opacity-80">
-          <li>
-            Каталог проектируется с учётом логики ИИ и пользовательских вопросов
-          </li>
-          <li>
-            Карточки товаров отвечают на вопросы и помогают выбирать
-          </li>
-          <li>
-            Характеристики и фильтры структурированы как сущности
-          </li>
-          <li>
-            ИИ-оптимизация закладывается на этапе разработки
-          </li>
-          <li>
-            Продажи усиливаются органическими рекомендациями ИИ
-          </li>
-          <li>
-            ИИ понимает, сравнивает и рекомендует товары
-          </li>
-        </ul>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
+        <WhatIsAIOptimized />
 
 {/* PROCESS */}
-  <section id="process" className="py-32">
-    <StageSliderDevRu />     
-  </section>
+ <section id="stages" className="py-32">
+      <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
+          Этапы разработки интернет-магазинов
+        </h2>
+       
+   <p className="max-w-3xl text-lg opacity-80 mb-14">
+             Разрабатываем интернет-магазины и проектируем веб-интерфейсы для людей, имеем опыт и экспертизу в веб-дизайне, верстке и программировании на PHP, JS.
+          </p>
+        </div>
+
+
+            <StageSliderDevRu />
+                </section>
+
+{/* DIFFERENCE */}
+<DifferenceSectionEcom />
 
 
 {/* FAQ */}
 <section id="faq" className="py-32">
-  <div className="max-w-5xl mx-auto px-6">
-
-    <h2 className="text-4xl md:text-5xl font-bold mb-16">
-      Часто задаваемые вопросы об ИИ-интернет-магазинах
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-5xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
+  Часто задаваемые вопросы об ИИ-интернет-магазинах
     </h2>
+    
 
     <div className="divide-y divide-black/10">
       {faqItems.map((item) => (
@@ -520,6 +418,8 @@ main-cta-center
     }}
   />
 </section>
+
+      <Divider />
 
       {/* CTA */}
       <section id="cta" className="py-32">

@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import ContactFormRus from "@/components/contact-form/ContactFormRus";
-import CountUp from 'react-countup'; 
 import Script from 'next/script'
-import StageSliderSeoRu from '@/components/stages/StageSliderSeoRu';
+import StageSliderSEOAIO from '@/components/stages/StageSliderSEOAIO';
+import PriceCounter from '@/components/PriceCounter';
+import Divider from '@/components/sections/Divider';
+import DifferenceSectionSEOAIO from '@/components/TypeAnimationSEOAIO';
 
 export const metadata: Metadata = {
   title:
@@ -49,86 +51,98 @@ const faqItems = [
 ]
 
 export default function AiWebsiteDesignPage() {
-  return (
-        <main className="relative">
-{/* HERO */}
-<section id="hero" className="py-32">
-  <div className="max-w-7xl mx-auto px-6">
+   return (
+    <main className="relative">
 
-    {/* Title */}
-    <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">
+{/* HERO */}
+   <section id="hero" className="py-32">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Title */}
+        <h1 className="text-3xl md:text-6xl font-bold text-center mb-8 mt-20">
       Продвижение в Яндекс и Алисе (SEO + AIO) в Москве
     </h1>
 
-    {/* Description */}
-    <p className="max-w-4xl mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-20">
+  {/* Description */}
+     <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
       Мы занимаемся продвижением сайтов в Яндексе и голосовом помощнике Алиса
       с учётом новой реальности ИИ-поиска.
       SEO + AIO — это стратегия, при которой сайт не только
       ранжируется в поиске, но и используется ИИ для рекомендаций,
       ответов и подсказок пользователям.
-      <br />
-      <span className="opacity-60">
-        Яндекс Поиск, Алиса, ИИ-выдача, SEO, AIO, структура и контент.
+       <br />
+           </p>
+            <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
+         <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Яндекс Поиск</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Алиса</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">ИИ-выдача</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">SEO</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">AIO,</span>  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">структура и контент.
       </span>
     </p>
 
-    {/* Price & Timing */}
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20">
+      {/* Price & Timing */}
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-20">
+ 
+          {/* Price */}
+          <div className="border-t border-black/10 pt-6">
+            <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
+               Стоимость
+            </div>
+<div className="text-2xl md:text-3xl font-semibold">
+         <PriceCounter from={2000} to={60000} /> / месяц
+        </div>
+                  </div>
 
-      {/* Price */}
-      <div className="border-t border-black/10 pt-6">
-        <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
-          Стоимость
-        </div>
-        <div className="text-2xl md:text-3xl font-semibold">
-          от 60 000 ₽ / месяц
-        </div>
-      </div>
+       {/* Time */}
+         <div className="border-t border-black/10 pt-6">
+            <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
+              Сроки
+            </div>
+            <div className="text-2xl md:text-3xl font-semibold">
+              от 4-6 месяцев
+             </div>
+          </div>
 
-      {/* Time */}
-      <div className="border-t border-black/10 pt-6">
-        <div className="text-sm uppercase tracking-wide opacity-60 mb-2">
-          Первые результаты
         </div>
-        <div className="text-2xl md:text-3xl font-semibold">
-          от 1–3 месяцев
-        </div>
-      </div>
-
-    </div>
 
     {/* CTA */}
-    <div className="flex justify-center">
-      <Link
-        href="/contact"
-        className="
-          inline-flex items-center justify-center
-          w-[180px] h-[180px]
-          rounded-full
-          bg-green-400 text-black
-          font-semibold uppercase text-sm
-          shadow-[0_0_40px_rgba(0,255,150,0.35)]
-          transition-transform hover:scale-105
-        "
-      >
-        Обсудить<br />продвижение →
-      </Link>
-    </div>
+        <div className="flex justify-center">
+     <Link
+            href="#cta"
+         className="
+relative overflow-hidden
+inline-flex items-center justify-center
+w-[180px] h-[180px]
+rounded-full
+bg-gradient-to-r from-[#8a4bff] to-[#5a2eff]
+text-white
+font-bold uppercase text-sm
+shadow-[0_0_70px_rgba(106,58,255,0.5)]
+hover:shadow-[0_0_100px_rgba(138,75,255,0.6)]
+transition-transform duration-300
+hover:scale-105
+main-cta-center
+"
+>
+            Обсудить<br />проект →
+          </Link>
+        </div>
+      </div>
+      </section>
 
-  </div>
-</section>
 
 {/* WHAT IS SEO + AIO */}
-<section id="what-is-seo-aio" className="py-32 bg-neutral-50">
-  <div className="max-w-7xl mx-auto px-6">
 
-    <h2 className="text-4xl md:text-5xl font-bold mb-12">
+<section
+      id="what-is-seo-aio"
+      className="text-white py-32 bg-black bg-gradient-to-br from-[#060010] via-[#060010] to-[#1a0b2e]"
+    >
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
+        <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl text-white tracking-tight">
       Что такое SEO + AIO и почему обычного SEO уже недостаточно
     </h2>
 
     <div className="max-w-4xl text-lg opacity-80 leading-relaxed mb-16">
-      <p className="mb-6">
+      <p className="mb-6 text-white">
         Классическое SEO работает с позициями сайта в поисковой выдаче.
         Но сегодня Яндекс и ИИ-системы, включая Алису, всё чаще
         не просто показывают сайты, а формируют готовые ответы.
@@ -140,108 +154,27 @@ export default function AiWebsiteDesignPage() {
         сущности и экспертность.
       </p>
     </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl">
-
-      <div>
-        <h3 className="text-xl font-semibold mb-4">
-          Классическое SEO
-        </h3>
-        <ul className="space-y-3 text-sm opacity-80">
-          <li>Работа с ключевыми словами</li>
-          <li>Оптимизация отдельных страниц</li>
-          <li>Рост позиций и трафика</li>
-          <li>Зависимость от выдачи</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 className="text-xl font-semibold mb-4">
-          SEO + AIO
-        </h3>
-        <ul className="space-y-3 text-sm opacity-80">
-          <li>Работа с вопросами и намерениями пользователей</li>
-          <li>Оптимизация структуры и смыслов сайта</li>
-          <li>Попадание в ответы Алисы и ИИ</li>
-          <li>Долгосрочный устойчивый эффект</li>
-        </ul>
-      </div>
-
-    </div>
-
   </div>
 </section>
 
 
 {/* PROCESS */}
-<section id="process" className="py-32">
-  <div className="max-w-7xl mx-auto px-6">
-
-    <h2 className="text-4xl md:text-5xl font-bold mb-20">
+ <section id="stages" className="py-32">
+      <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl md:text-6xl font-bold mb-10 max-w-4xl tracking-tight">
       Как мы продвигаем сайты в Яндекс и Алисе
     </h2>
-    <StageSliderSeoRu />     
-    <ol className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl list-decimal list-inside">
-
-      <li className="text-sm opacity-80">
-        <strong className="block text-base text-black mb-2">
-          Анализ ниши и ИИ-выдачи
-        </strong>
-        Изучаем, как Яндекс и Алиса отвечают на запросы в вашей тематике
-        и какие сайты они используют как источники.
-      </li>
-
-      <li className="text-sm opacity-80">
-        <strong className="block text-base text-black mb-2">
-          Аудит сайта и структуры
-        </strong>
-        Проверяем архитектуру сайта, контент, навигацию и
-        готовность к ИИ-оптимизации.
-      </li>
-
-      <li className="text-sm opacity-80">
-        <strong className="block text-base text-black mb-2">
-          Переработка контента под вопросы
-        </strong>
-        Формируем контент, который отвечает на реальные вопросы
-        пользователей, а не просто содержит ключевые слова.
-      </li>
-
-      <li className="text-sm opacity-80">
-        <strong className="block text-base text-black mb-2">
-          Внедрение микроразметки
-        </strong>
-        Используем schema.org и сущности, чтобы ИИ мог
-        корректно извлекать факты с сайта.
-      </li>
-
-      <li className="text-sm opacity-80">
-        <strong className="block text-base text-black mb-2">
-          Усиление E-E-A-T
-        </strong>
-        Работаем с экспертностью, авторством, доверительными
-        сигналами и прозрачностью сайта.
-      </li>
-
-      <li className="text-sm opacity-80">
-        <strong className="block text-base text-black mb-2">
-          Мониторинг и рост
-        </strong>
-        Отслеживаем появление сайта в ИИ-ответах,
-        рекомендациях Алисы и органической выдаче.
-      </li>
-
-    </ol>
-
+    <StageSliderSEOAIO />     
   </div>
 </section>
 
+{/* DIFFERENCE */}
+<DifferenceSectionSEOAIO />
 
 {/* FAQ */}
 <section id="faq" className="py-32">
-  <div className="max-w-5xl mx-auto px-6">
-
-    <h2 className="text-4xl md:text-5xl font-bold mb-16">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-5xl md:text-6xl font-bold mb-10 max-w-5xl tracking-tight">
       Часто задаваемые вопросы о продвижении в Яндекс и Алисе
     </h2>
 
@@ -288,9 +221,9 @@ export default function AiWebsiteDesignPage() {
 </section>
 
 
+      <Divider />
 
-
-    {/* CTA */}
+      {/* CTA */}
       <section id="cta" className="py-32">
         <ContactFormRus />
       </section>

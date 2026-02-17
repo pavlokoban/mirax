@@ -76,12 +76,13 @@
     margin-bottom: 42px;
     font-weight: 600;
     width: max-content;
+    width: 100%;
     font-size: 20px;
   }
   
   .resultTextP {
     background-color: #723fff;
-       background-color:#1a0b2e;
+    background-color:#1a0b2e;
     color: #ffffff;
     font-weight: 400;
     font-size: 20px;
@@ -140,23 +141,6 @@
             margin-top: 12px;
         }
 }
-/* @media (max-width: 992px) {
-
-  .slickArrow {
-    top: auto;
-    bottom: 20px;
-    transform: none;
-  }
-
-  .slickPrev {
-    left: 30% !important
-  }
-
-  .slickNext {
-    right: 30% !important;
-  }
-
-} */
 @media (max-width: 992px) {
 
   .slickArrow {
