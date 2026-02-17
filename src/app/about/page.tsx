@@ -98,7 +98,7 @@ export default function AboutPage() {
         {/* CTA */}
         <div className="flex justify-center">
           <Link
-            href="/contact"
+            href="/contacts"
             className="
               inline-flex items-center justify-center
               w-[200px] h-[200px]

@@ -67,11 +67,12 @@ export default function ContactPage() {
 
               <li className="pt-4">
                 <strong>Карьера:</strong><br />
+                Присоединиться к команде —  
                 <a
                   href="mailto:hr@mirax.ru"
                   className="hover:underline"
                 >
-                  Присоединиться к команде — hr@mirax.ru
+                   hr@mirax.ru
                 </a>
               </li>
             </ul>
@@ -88,7 +89,7 @@ export default function ContactPage() {
               {/* Photo */}
               <div className="w-24 h-24 rounded-full overflow-hidden bg-neutral-200 flex-shrink-0">
                 <Image
-                  src="/images/person-placeholder.jpg"
+                  src="/person-placeholder.jpg"
                   alt="Алексей — руководитель отдела продаж"
                   width={96}
                   height={96}
