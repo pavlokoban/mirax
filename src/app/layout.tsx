@@ -16,14 +16,14 @@ import {
 
 
 export const metadata = {
-  title: "Миракс – Разработка сайтов WordPress, оптимизированные для ИИ | Москва",
+  title: "Mirax Digital – разработка сайтов WordPress, оптимизированные для ИИ | Москва",
   description:
-    "Миракс spezialisiert sich auf KI-freundliche WordPress-Webentwicklung, technische SEO und AI-Optimierung für Unternehmen in Deutschland und Frankfurt am Main.",
+    "Разработка сайтов в Москве: мы создаём сайты, которые рекомендуют Алиса, Gemini и другие ИИ-системы — так же, как раньше это делал Яндекс SEO",
   openGraph: {
-    title: "Миракс – KI-freundliche WordPress-Websites & AI SEO",
+    title: "Mirax Digital – разработка сайтов WordPress, оптимизированные для ИИ | Москва",
     description:
-      "Webentwicklung, SEO und AI-optimierte Websites für bessere Sichtbarkeit in Google & AI Overviews.",
-    url: "https://mirax-amber.vercel.app/",
+      "Разработка сайтов в Москве: мы создаём сайты, которые рекомендуют Алиса, Gemini и другие ИИ-системы — так же, как раньше это делал Яндекс SEO",
+    url: "https://mirax-digital.ru/",
     siteName: "Миракс",
     locale: "ru_RU",
     type: "website",

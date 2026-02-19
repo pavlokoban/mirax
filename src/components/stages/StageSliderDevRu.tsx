@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const stages = [
-  { number: 1, title: 'Информационная архитектура', result: 'Концепция проекта: идея, структура' },
+  { number: 1, title: 'Архитектура', result: 'Концепция проекта: идея, структура' },
   { number: 2, title: 'Проектирование', result: 'Проект и его техническая спецификация' },
   { number: 3, title: 'Прототипирование', result: 'Интерактивные прототипы для десктопа и мобильных устройств' },
   { number: 4, title: 'Дизайн', result: 'Готовые к верстке макеты всех типовых разделов' },

@@ -249,12 +249,12 @@ const titleRef = useRef<HTMLHeadingElement | null>(null);
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact/#start-discussion">
+              <Link href="/contacts/#form">
                 <AIButton style={{ background: "#00F176", color: "black" }}>
                   Получить консультацию
                 </AIButton>
               </Link>
-              <Link href="/#services">
+              <Link href="/services">
                 <AIButton variant="outline" style={{ background: "#ffffffff", color: "black", border: "none" }}>Наши услуги</AIButton>
               </Link>
             </div>

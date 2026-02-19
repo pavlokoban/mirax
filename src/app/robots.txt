@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mirax.ru/sitemap.xml
+Sitemap: https://mirax-digital.ru/sitemap.xml

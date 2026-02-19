@@ -120,7 +120,7 @@ export default function AiWebsiteDevelopmentPage() {
       а не просто как витрину товаров.
     <br />
            </p>
-            <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
+            <p className="mx-auto text-center text-lg md:text-xl opacity-80 mb-8 leading-[2.5]">
                <span className="px-4 py-2 rounded-full border border-black/15 text-sm">OpenCart</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">WooCommerce</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Next.js</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">MySQL</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">1C-Битрикс</span>
         </p>
 

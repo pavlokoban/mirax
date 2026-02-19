@@ -76,8 +76,8 @@ export default function AiWebsiteDesignPage() {
       конверсию и рекомендации.
       <br />
            </p>
-            <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
-        <span className="px-4 py-2 rounded-full border border-black/15 text-sm">UX/UI</span>, <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Figma</span>, <span className="px-4 py-2 rounded-full border border-black/15 text-sm">дизайн-системы</span>, <span className="px-4 py-2 rounded-full border border-black/15 text-sm">accessibility</span>, <span className="px-4 py-2 rounded-full border border-black/15 text-sm">mobile-first</span>.
+            <p className="mx-auto text-center text-lg md:text-xl opacity-80 mb-8 leading-[2.5]">
+        <span className="px-4 py-2 rounded-full border border-black/15 text-sm">UX/UI</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Figma</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">дизайн-системы</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">accessibility</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">mobile-first</span>.
     </p>
 
       {/* Price & Timing */}

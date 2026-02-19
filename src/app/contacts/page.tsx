@@ -100,10 +100,10 @@ export default function ContactPage() {
               {/* Info */}
               <div>
                 <div className="text-lg font-semibold">
-                  Алексей
+                  Алексей Сашилин
                 </div>
                 <div className="text-sm opacity-70 mb-2">
-                  Руководитель отдела продаж
+                  Руководитель студии
                 </div>
 
                 <div className="text-sm space-y-1">

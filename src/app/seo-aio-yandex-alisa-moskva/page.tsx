@@ -72,8 +72,8 @@ export default function AiWebsiteDesignPage() {
       ответов и подсказок пользователям.
        <br />
            </p>
-            <p className="mx-auto text-center text-lg md:text-xl opacity-80 leading-relaxed mb-8">
-         <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Яндекс Поиск</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Алиса</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">ИИ-выдача</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">SEO</span>,  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">AIO,</span>  <span className="px-4 py-2 rounded-full border border-black/15 text-sm">структура и контент.
+            <p className="mx-auto text-center text-lg md:text-xl opacity-80 mb-8 leading-[2.5]">
+         <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Яндекс Поиск</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">Алиса</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">ИИ</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">SEO</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">AIO</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">структура</span> <span className="px-4 py-2 rounded-full border border-black/15 text-sm">контент.
       </span>
     </p>
 
